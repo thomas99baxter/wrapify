@@ -11,10 +11,6 @@ let spotifyApi = new SpotifyWebApi({
     redirectUri: 'http://localhost:8080/test/'
 });
 
-
-let code = 'AQBp4aKQqa91z3Ws7zSQQGDOEHnCbVXI_lLrYmzrVtTomgJANczUxpW2NbCGbpXC-JDLZm0xSjaNVBAoch7Ej1VGnoqi4SOJIxxTHh0bEI4neQIVilhIulR44smA24-AgPAkNhhOaJIGVOkDrmjd-ij-3-i7ikSZNqm5RYbcH5YPTZyYupgXcHx4uOeVkp4ZSy4-O3fgXzjOESEwNN5U2ykNnA'
-
-
 app.get('/login', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email'];
     var state = 'some-state-of-my-choice';
