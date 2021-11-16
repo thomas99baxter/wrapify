@@ -68,11 +68,11 @@ app.get('/albums', (req, res) => {
 app.get('/top-tracks', async (req, res) => {
 
   spotifyApi.getMyRecentlyPlayedTracks({
-    limit : 1
+    limit : 20
   }).then(function(data) {
       // Output items
       console.log("Your 20 most recently played tracks are:");
-      data.body.items.forEach(item => console.log(item.track));
+      data.body.items.forEach(item => console.log(item.track.name));
     }, function(err) {
       console.log('Something went wrong!', err);
     });  
