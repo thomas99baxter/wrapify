@@ -12,7 +12,7 @@ let spotifyApi = new SpotifyWebApi({
 });
 
 app.get('/login', (req, res) => {
-    var scopes = ['user-read-private', 'user-read-email'];
+    var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
@@ -56,13 +56,25 @@ app.get('/', (req, res) => {
     res.render("index.ejs", {artists: artists})
 });
 
-app.get('/albums', ((req, res) => {
+app.get('/albums', (req, res) => {
+  spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
+  .then(function(data) {
+    console.log('Album information', data.body);
+  }, function(err) {
+    console.error(err);
+  });
+})
 
-    spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
-        .then(function (data) {
-            console.log('Album information', data.body);
-        }, function (err) {
-            console.error(err);
-        });
+app.get('/top-tracks', async (req, res) => {
 
-}));
+  spotifyApi.getMyRecentlyPlayedTracks({
+    limit : 1
+  }).then(function(data) {
+      // Output items
+      console.log("Your 20 most recently played tracks are:");
+      data.body.items.forEach(item => console.log(item.track));
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });  
+
+});
