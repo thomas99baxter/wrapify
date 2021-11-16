@@ -4,6 +4,7 @@ const app = express();
 const SpotifyWebApi = require('spotify-web-api-node');
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
 let spotifyApi = new SpotifyWebApi({
     clientId: process.env.CLIENT_ID,

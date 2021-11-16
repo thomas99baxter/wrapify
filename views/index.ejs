@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <%-include("./partials/head.ejs")%> </head>
+<head>
+    <%-include("./partials/head.ejs")%>
+</head>
 <body>
 <header> <%-include("./partials/header.ejs")%> </header>
 
 <% artists.forEach((artist)=> { %>
     <h4><%= artist.name %></h4>
     <h6> <%= artist.song %></h6>
+    <br>
     <% });  %>
 </body>
 </html>
