@@ -1,29 +1,33 @@
 const express = require("express");
 require('dotenv').config()
-const querystring = require("querystring")
 const app = express();
 const SpotifyWebApi = require('spotify-web-api-node');
 
 app.set("view engine", "ejs");
 
 let spotifyApi = new SpotifyWebApi({
-  clientId: '55fcc051d87741109912921021e65440',
-  clientSecret: '1da6e67941dc4cd8b5a7aabfe72404a2',
-  redirectUri: 'http://www.example.com/callback'
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  redirectUri: 'http://localhost:8080/test/'
 });
+console.log(spotifyApi)
+var code = process.env.CLIENT_ID;
 
-function generateRandomString(length) {
-  var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * 
-charactersLength));
- }
- return result;
-}
+// Retrieve an access token and a refresh token
+spotifyApi.authorizationCodeGrant(code).then(
+  function(data) {
+    console.log('The token expires in ' + data.body['expires_in']);
+    console.log('The access token is ' + data.body['access_token']);
+    console.log('The refresh token is ' + data.body['refresh_token']);
 
-spotifyApi.setAccessToken('<your_access_token>');
+    // Set the access token on the API object to use it in later calls
+    spotifyApi.setAccessToken(data.body['access_token']);
+    spotifyApi.setRefreshToken(data.body['refresh_token']);
+  },
+  function(err) {
+    console.log('Something went wrong!', err);
+  }
+);
 
 app.listen(8080, ()=>{
   console.log("listening on post 8080")
@@ -32,22 +36,8 @@ app.get('/test', (req, res) => {
   res.send("hello!")
 });
 
-var client_id = process.env.CLIENT_ID;
-var redirect_uri = 'http://localhost:8080/test/';
-
 app.get('/login', (req, res) => {
 
-  var state = generateRandomString(16);
-  var scope = 'user-read-private user-read-email';
-
-  res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: client_id,
-      scope: scope,
-      redirect_uri: redirect_uri,
-      state: state
-    }));
 });
 
 app.get('/', (req, res) => {
