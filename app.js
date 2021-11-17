@@ -1,7 +1,8 @@
 const express = require("express");
+const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
-const SpotifyWebApi = require('spotify-web-api-node');
+const { getMostListenedToAlbum } = require('./lib/getAlbums');
 
 app.set("view engine", "ejs");
 
@@ -12,7 +13,7 @@ let spotifyApi = new SpotifyWebApi({
 });
 
 app.get('/login', (req, res) => {
-    var scopes = ['user-read-private', 'user-read-email'];
+    var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
@@ -56,13 +57,18 @@ app.get('/', (req, res) => {
     res.render("index.ejs", {artists: artists})
 });
 
-app.get('/albums', ((req, res) => {
+app.get('/albums', (req, res) => {
+  spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
+  .then(function(data) {
+    console.log('Album information', data.body);
+  }, function(err) {
+    console.error(err);
+  });
+})
 
-    spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
-        .then(function (data) {
-            console.log('Album information', data.body);
-        }, function (err) {
-            console.error(err);
-        });
+app.get('/top-tracks', async (req, res) => {
 
-}));
+  let albums = await getMostListenedToAlbum(spotifyApi);
+
+  console.log(albums)
+});
