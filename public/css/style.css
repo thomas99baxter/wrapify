@@ -1,8 +1,7 @@
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: Circular, Helvetica, Arial, sans-serif;
   font-size: large;
-  background-color: black;
-  color: rgb(0, 165, 0);
+  color: #1DB954;
   margin-top: 4em;
 }
 
@@ -51,6 +50,67 @@ a {
   margin-left: auto;
 }
 
-.most-played-image {
-  border-radius: 50%;
+.flex-container {
+  display: flex;
+  flex-direction: column;
 }
+
+#section {
+  height: 100vh;
+  width: 100%;
+  padding: 2.5% 5%;
+}
+
+#section h2 {
+  margin-top: 0;
+}
+
+.most-played-images {
+  width: 50vh;
+  height: 50vh;
+  border-radius: 50%;
+  border-style: solid;
+  background-color: #1DB954;
+  border-width: thick;
+}
+
+.most-played-song-section {
+  background-color: #FFFFFF;
+}
+
+.most-played-artist-section {
+  background-color: #191414
+}
+
+.most-played-artist-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  float: right;
+}
+
+.most-played-artist-section .most-played-images {
+  float: right;
+}
+
+.most-played-album-section {
+  background-color: #1DB954;
+}
+
+.most-played-album-section-content {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  align-items: center;
+  color: white;
+}
+
+.most-played-album-section .most-played-images {
+  float: left;
+}
+
+.your-top-genres {
+  background-color: #191414;
+}
+
+

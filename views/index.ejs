@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include("./partials/head.ejs")%>
+    <%- include("./partials/head.ejs") %>
 </head>
 <body>
-<header> <%-include("./partials/header.ejs")%> </header>
+<header> <%- include("./partials/header.ejs") %> </header>
 
-    <h2>Your most played song is:</h2>
-    <h4>Deadmau5</h4>
-    <h6>Ghosts 'n' stuff</h6>
-    <img class="most-played-image" src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg" >
+<div class="flex-container">
+    <div id="section" class="most-played-song-section">
+        <h2>Your most played song is:</h2>
+        <h4>Deadmau5</h4>
+        <h6>Ghosts 'n' stuff</h6>
+        <img class="most-played-images"
+             src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+    </div>
+
+    <div id="section" class="most-played-artist-section">
+        <h2>Your most played artist is:</h2>
+
+        <div class="most-played-artist-section-content">
+            <h4>Deadmau5</h4>
+            <img class="most-played-images"
+                 src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+        </div>
+    </div>
+
+    <div id="section" class="most-played-album-section">
+        <h2>Your most played album is:</h2>
+
+        <div class="most-played-album-section-content">
+            <h4>For Lack of a Better Name</h4>
+            <h6 class="most-played-album-section-content">Deadmau5</h6>
+
+            <img class="most-played-images"
+                 src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+
+        </div>
+
+        <iframe src="https://open.spotify.com/embed/album/6WJvrBlL3zgu4mVoKyvMkl?utm_source=generator"
+                width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
+            encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+    </div>
+
+    <div id="section" class="favourites-by-decade">
+        <h2>Your Favourites by the Decade:</h2>
+        <h4>Deadmau5</h4>
+        <h6>Ghosts 'n' stuff</h6>
+        <img class="most-played-images"
+             src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+    </div>
+
+    <div id="section" class="your-top-genres">
+        <h2>Your top genres are:</h2>
+        <h4></h4>
+        <h6></h6>
+    </div>
+
+</div>
+
 </body>
 </html>
