@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <%-include("./partials/head.ejs")%> </head>
+<head>
+    <%- include("./partials/head.ejs") %>
+</head>
 <body>
-<header> <%-include("./partials/header.ejs")%> </header>
+<header> <%- include("./partials/header.ejs") %> </header>
 
-<p>'ello t' raveller</p>
-<p>beauteh</p>
-<% artists.forEach((artist)=> { %>
-    <h4><%= artist.name %></h4>
-    <h6> <%= artist.song %></h6>
-    <% });  %>
+<div class="flex-container">
+    <%- include("./partials/song.ejs") %>
+    <%- include("./partials/artist.ejs") %>
+    <%- include("./partials/album.ejs") %>
+    <%- include("./partials/genre.ejs") %>
+    <%- include("./partials/decade.ejs") %>
+</div>
+
 </body>
 </html>

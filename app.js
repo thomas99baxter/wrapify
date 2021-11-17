@@ -5,6 +5,7 @@ const app = express();
 const { getMostListenedToAlbum } = require('./lib/getAlbums');
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
 let spotifyApi = new SpotifyWebApi({
     clientId: process.env.CLIENT_ID,
