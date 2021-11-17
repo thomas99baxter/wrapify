@@ -1,7 +1,8 @@
 const express = require("express");
+const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
-const SpotifyWebApi = require('spotify-web-api-node');
+const { getMostListenedToAlbum } = require('./lib/getAlbums');
 
 app.set("view engine", "ejs");
 
@@ -65,16 +66,25 @@ app.get('/albums', (req, res) => {
   });
 })
 
-app.get('/top-tracks', async (req, res) => {
+app.get('/top-tracks', (req, res) => {
 
-  spotifyApi.getMyRecentlyPlayedTracks({
-    limit : 20
-  }).then(function(data) {
-      // Output items
-      console.log("Your 20 most recently played tracks are:");
-      data.body.items.forEach(item => console.log(item.track.name));
-    }, function(err) {
-      console.log('Something went wrong!', err);
-    });  
+  // spotifyApi.getMyRecentlyPlayedTracks({
+  //   limit : 20
+  // }).then(function(data) {
+  //     // Output items
+  //     console.log("Your 20 most recently played tracks are:");
+  //     data.body.items.forEach(item => console.log(item.track.name));
+  //   }, function(err) {
+  //     console.log('Something went wrong!', err);
+  //   });  
 
+  // spotifyApi.getMyTopTracks()
+  // .then(function(data) {
+  //   let topTracks = data.body.items;
+  //   console.log(topTracks);
+  // }, function(err) {
+  //   console.log('Something went wrong!', err);
+  // });
+
+  getMostListenedToAlbum(spotifyApi);
 });
