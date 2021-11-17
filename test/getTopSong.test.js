@@ -41,9 +41,17 @@ describe('GetTopSong', () => {
         let result = await getTopTracks(spotifyApiStub);
         expect(result).to.be.an.instanceOf(Object)
     });
-    it('should return an object with correct album value', async () => {
+    it('should return an object with correct song value', async () => {
         result = await getTopTracks(spotifyApiStub);
         // Use deep equal here top stop javascript messing up object equality
-        expect(result).to.deep.equal(topSongMockResponse)
+        expect(result).to.deep.equal(
+            {
+                "song_cover": {
+                    "height": 100,
+                    "href": "myHref",
+                    "width": 100,
+                },
+                "song_name": "Going Bad (feat. Drake)"
+        })
     });
 });

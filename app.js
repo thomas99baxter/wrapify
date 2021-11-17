@@ -43,7 +43,7 @@ app.get('/test', (req, res) => {
         }
     );
 
-    res.send("hello!")
+    res.send('<a href="/">Hello!</a>')
 });
 
 
@@ -61,9 +61,3 @@ app.get('/albums', (req, res) => {
     console.error(err);
   });
 })
-
-app.get('/top-tracks', async (req, res) => {
-
-//   let albums = await getMostListenedToAlbum(spotifyApi);
-    getTopTracks(spotifyApi);
-});

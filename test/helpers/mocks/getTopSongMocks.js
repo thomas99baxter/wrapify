@@ -7,7 +7,7 @@ const topSongMockResponse = [
         external_urls: [Object],
         href: 'https://api.spotify.com/v1/albums/6UYZEYjpN1DYRW0kqFy9ZE',
         id: '6UYZEYjpN1DYRW0kqFy9ZE',
-        images: [Array],
+        images: [{width: 100, height: 100, href: "myHref"}],
         name: 'Championships',
         release_date: '2018-11-30',
         release_date_precision: 'day',
