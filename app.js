@@ -66,25 +66,9 @@ app.get('/albums', (req, res) => {
   });
 })
 
-app.get('/top-tracks', (req, res) => {
+app.get('/top-tracks', async (req, res) => {
 
-  // spotifyApi.getMyRecentlyPlayedTracks({
-  //   limit : 20
-  // }).then(function(data) {
-  //     // Output items
-  //     console.log("Your 20 most recently played tracks are:");
-  //     data.body.items.forEach(item => console.log(item.track.name));
-  //   }, function(err) {
-  //     console.log('Something went wrong!', err);
-  //   });  
+  let albums = await getMostListenedToAlbum(spotifyApi);
 
-  // spotifyApi.getMyTopTracks()
-  // .then(function(data) {
-  //   let topTracks = data.body.items;
-  //   console.log(topTracks);
-  // }, function(err) {
-  //   console.log('Something went wrong!', err);
-  // });
-
-  getMostListenedToAlbum(spotifyApi);
+  console.log(albums)
 });
