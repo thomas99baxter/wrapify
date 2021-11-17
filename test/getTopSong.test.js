@@ -37,4 +37,13 @@ describe('GetTopSong', () => {
         // Expect spotifyApiStub to have been called once
         sinon.assert.calledOnce(spotifyApiStub.getMyTopTracks)
     });
+    it('should return an object', async () => {
+        let result = await getTopTracks(spotifyApiStub);
+        expect(result).to.be.an.instanceOf(Object)
+    });
+    it('should return an object with correct album value', async () => {
+        result = await getTopTracks(spotifyApiStub);
+        // Use deep equal here top stop javascript messing up object equality
+        expect(result).to.deep.equal(topSongMockResponse)
+    });
 });
