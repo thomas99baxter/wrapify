@@ -4,3 +4,47 @@ body {
   background-color: black;
   color: rgb(0, 165, 0);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,a{
+  margin:0;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-evenly;*/
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  position: fixed;
+  background-color: whitesmoke;
+  top: 0;
+}
+
+.container a {
+  padding: 22px;
+}
+
+.nav-link-left {
+  margin-right: auto;
+}
+
+.navbar-brand {
+  margin-left: 0;
+}
+
+.nav-link-right {
+  margin-left: auto;
+}
+
