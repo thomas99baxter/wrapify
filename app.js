@@ -53,8 +53,9 @@ app.get('/', async (req, res) => {
     let artistResult = await getTopArtists(spotifyApi)
     console.log(artistResult)
     res.render("index.ejs", {
-        songName: songResult.song_name,
-        songCover: songResult.song_cover,
+        topSongName: songResult[0].song_name,
+        topSongCover: songResult[0].song_cover,
+        topSongs: songResult,
         topArtistName: artistResult[0].artist_name,
         topArtistCover: artistResult[0].artist_cover,
         topArtists: artistResult
