@@ -49,23 +49,25 @@ app.get('/test', (req, res) => {
 
 
 app.get('/', async (req, res) => {
+    let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
+
     res.render("index.ejs", {
+        // favourite song info
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
         topSongs: songResult,
+        
+        // favourite artist info
         topArtistName: artistResult[0].artist_name,
         topArtistCover: artistResult[0].artist_cover,
-        topArtists: artistResult
+        topArtists: artistResult,
+        
+        //favourite album information
+        albumName: topAlbum.albumName,
+        albumCover: topAlbum.albumCover,
+        songsFromAlbum: topAlbum.songsFromAlbum,
+        albumArtist: topAlbum.albumArtist,
     })
 });
-
-app.get('/albums', (req, res) => {
-  spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
-  .then(function(data) {
-    console.log('Album information', data.body);
-  }, function(err) {
-    console.error(err);
-  });
-})

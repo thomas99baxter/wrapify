@@ -2,7 +2,7 @@ const threeUniqueAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
       images: [Array],
@@ -28,7 +28,7 @@ const threeUniqueAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
       images: [Array],
@@ -54,7 +54,7 @@ const threeUniqueAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
       images: [Array],
@@ -80,7 +80,7 @@ const threeUniqueAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
       images: [Array],
@@ -109,10 +109,14 @@ const twoUniqueTwoDuplicateAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
-      images: [Array],
+      images: [{
+        width: 100,
+        height: 100,
+        href: "www.foobar.com"
+      }],
       name: 'Techno Disco Tool',
       release_date: '2017-11-29',
       type: 'album',
@@ -135,10 +139,14 @@ const twoUniqueTwoDuplicateAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
-      images: [Array],
+      images: [{
+        width: 100,
+        height: 100,
+        href: "www.foobar.com"
+      }],
       name: 'Techno Disco Tool',
       release_date: '2017-11-29',
       type: 'album',
@@ -161,10 +169,14 @@ const twoUniqueTwoDuplicateAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
-      images: [Array],
+      images: [{
+        width: 100,
+        height: 100,
+        href: "www.foobar.com"
+      }],
       name: 'Techno Funk Tool',
       release_date: '2017-11-29',
       type: 'album',
@@ -187,10 +199,14 @@ const twoUniqueTwoDuplicateAlbumsMock = [
   {
     album: {
       album_type: 'SINGLE',
-      artists: [Array],
+      artists: [{name: "Mella Dee"}],
       href: 'https://api.spotify.com/v1/albums/2lp65IrqbdOdbygnaXzMqv',
       id: '2lp65IrqbdOdbygnaXzMqv',
-      images: [Array],
+      images: [{
+        width: 100,
+        height: 100,
+        href: "www.foobar.com"
+      }],
       name: 'Techno Soul Tool',
       release_date: '2017-11-29',
       type: 'album',

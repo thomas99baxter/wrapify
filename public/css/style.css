@@ -147,6 +147,11 @@ a {
   float: left;
 }
 
+.most-played-album-title {
+  color: black;
+  font-size: xxx-large;
+}
+
 .your-top-genres {
   background-color: #191414;
 }
