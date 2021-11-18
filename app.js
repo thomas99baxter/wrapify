@@ -49,7 +49,7 @@ app.get('/test', (req, res) => {
         }
     );
 
-    res.send('<a href="/view">Hello!</a>')
+    res.redirect('/view')
 });
 
 
