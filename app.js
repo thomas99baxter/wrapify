@@ -32,8 +32,7 @@ app.get('/', (req, res) => {
     res.redirect(authorizeURL)
 });
 
-app.get('/test', (req, res) => {
-
+app.get('/test/', (req, res) => {
     spotifyApi.authorizationCodeGrant(req.query.code).then(
         function (data) {
             console.log('The token expires in ' + data.body['expires_in']);
@@ -43,17 +42,18 @@ app.get('/test', (req, res) => {
             // Set the access token on the API object to use it in later calls
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
+            res.redirect('/view')
         },
         function (err) {
             console.log('Something went wrong!', err);
         }
     );
 
-    res.redirect('/view')
 });
 
 
 app.get('/view', async (req, res) => {
+    // console.log(spotifyApi);
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
