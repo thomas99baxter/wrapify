@@ -48,13 +48,17 @@ app.get('/test', (req, res) => {
 
 
 app.get('/', async (req, res) => {
-    let result = await getTopTracks(spotifyApi)
-    res.render("index.ejs", {
-        songName: result.song_name,
-        songCover: result.song_cover
-    })
-});
+    let topTracks = await getTopTracks(spotifyApi)
+    let topAlbum = await getMostListenedToAlbum(spotifyApi)
 
-app.get('/albums', async (req, res) => {
-  let result = await getMostListenedToAlbum(spotifyApi)
+    res.render("index.ejs", {
+        //favourite song information
+        songName: topTracks.song_name,
+        songCover: topTracks.song_cover,
+
+        //favourite album information
+        albumName: topAlbum.albumName,
+        albumCover: topAlbum.albumCover,
+        songsFromAlbum: topAlbum.songsFromAlbum,
+    })
 });

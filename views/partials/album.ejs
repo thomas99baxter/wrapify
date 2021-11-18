@@ -1,17 +1,18 @@
 <div id="album-section" class="most-played-album-section">
-  <h2>Your most played album is:</h2>
+    <h2 class="most-played-album-title">Your most played album is:</h2>
 
-  <div class="most-played-album-section-content">
-      <h4>For Lack of a Better Name</h4>
-      <h6 class="most-played-album-section-content">Deadmau5</h6>
+    <div class="most-played-album-section-content">
+        <h1> <%= albumName %> </h1><br>
+        <h3> <%= songsFromAlbum %> songs from this album appeared in your Top 50 of all time!</h3><br>
+        <h2 class="most-played-album-section-content">Dr. Dog</h2>
 
-      <img class="most-played-images"
-           src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+        <img class=""
+             src=<%= albumCover.url %>>
 
-  </div>
+    </div>
 
-  <iframe src="https://open.spotify.com/embed/album/6WJvrBlL3zgu4mVoKyvMkl?utm_source=generator"
-          width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
-      encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <!--  <iframe src="https://open.spotify.com/embed/album/6WJvrBlL3zgu4mVoKyvMkl?utm_source=generator"-->
+    <!--          width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;-->
+    <!--      encrypted-media; fullscreen; picture-in-picture"></iframe>-->
 
 </div>
