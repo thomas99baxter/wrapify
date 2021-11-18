@@ -48,7 +48,16 @@ describe('getMostListenedToAlbum', () => {
   it('should return an object with correct album value', async () => {
     result = await getMostListenedToAlbum(spotifyApiStub);
     // Use deep equal here top stop javascript messing up object equality
-    expect(result).to.deep.equal({"Techno Disco Tool": 2})
+    expect(result).to.deep.equal({
+      albumName: "Techno Disco Tool",
+      albumArtist: "Mella Dee",
+      albumCover: {
+        width: 100,
+        height: 100,
+        href: "www.foobar.com"
+      },
+      songsFromAlbum: 2,
+    })
   });
   
   it('should fail', async() => {
