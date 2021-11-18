@@ -96,9 +96,8 @@ a {
 .most-played-images {
   width: 50vh;
   height: 50vh;
-  border-radius: 5px;
-  border-style: solid;
-  background-color: #1DB954;
+  border-radius: 10%;
+  background-color: white;
 }
 
 .most-played-artist-images {
