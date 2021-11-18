@@ -5,6 +5,9 @@
     "functions": "100",
     "statements": "100"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "name": "wrapify",
   "version": "1.0.0",
   "description": "",

@@ -12,10 +12,19 @@ app.use(express.static(__dirname + '/public'));
 let spotifyApi = new SpotifyWebApi({
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    redirectUri: 'http://localhost:8080/test/'
+    redirectUri: `${process.env.REDIRECT_URI}`
 });
 
-app.get('/login', (req, res) => {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8080;
+}
+
+app.listen(port, () => {
+    console.log(`listening on port ${port}`)
+});
+
+app.get('/', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
@@ -23,12 +32,7 @@ app.get('/login', (req, res) => {
     res.redirect(authorizeURL)
 });
 
-app.listen(8080, () => {
-    console.log("listening on post 8080")
-});
-
-app.get('/test', (req, res) => {
-
+app.get('/test/', (req, res) => {
     spotifyApi.authorizationCodeGrant(req.query.code).then(
         function (data) {
             console.log('The token expires in ' + data.body['expires_in']);
@@ -38,21 +42,16 @@ app.get('/test', (req, res) => {
             // Set the access token on the API object to use it in later calls
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
+            res.redirect('/view')
         },
         function (err) {
             console.log('Something went wrong!', err);
         }
     );
-
-    res.render("middleman.ejs")
-});
-
-app.get('/welcome', (req, res) => {
-    res.render("welcome.ejs")
 });
 
 
-app.get('/', async (req, res) => {
+app.get('/view', async (req, res) => {
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
