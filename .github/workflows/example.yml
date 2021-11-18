@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Install dependencies, run tests
+      - name: Install dependencies
         run: npm install
       - run: npm test
+      - run: npm run coverage
