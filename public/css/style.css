@@ -75,6 +75,15 @@ a {
     background-color: #1DB954;
 }
 
+.most-played-artist-images {
+  width: 50vh;
+  height: 50vh;
+  border-radius: 50%;
+  border-style: solid;
+  background-color: #1DB954;
+  border-width: thick;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -110,7 +119,6 @@ img {
 .your-top-genres {
     background-color: #191414;
 }
-
 
 /* MOST PLAYED ALBUM SECTION */
 
