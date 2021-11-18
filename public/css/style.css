@@ -96,10 +96,9 @@ a {
 .most-played-images {
   width: 50vh;
   height: 50vh;
-  border-radius: 25%;
+  border-radius: 5px;
   border-style: solid;
   background-color: #1DB954;
-  border-width: thick;
 }
 
 .most-played-artist-images {
@@ -156,7 +155,11 @@ a {
   background-color: #191414;
 }
 
-
+.spotify-embedded-album {
+  display: flex;
+  justify-content: right;
+  align-content: center;
+}
 
 .most-played-artist-ul-tag {
   color: #1DB954;

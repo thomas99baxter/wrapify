@@ -3,14 +3,17 @@
 
   <div class="most-played-artist-section-content">
     <div class="most-played-artist">
-    <h4><%= topSongName %> </h4>
-    <img class="most-played-images"
+    <h2><%= topSongName %> </h2>
+
+      <img class="most-played-images"
       src=<%= topSongCover.url %>>
     </div>
+
     <ul class="most-played-artist-ul-tag">
       <% for(let i = 0; i < topSongs.length; i++) { %>
         <li class="most-played-artist-li-tag"><%= topSongs[i].song_name %></li>
       <% } %>
     </ul>
+
   </div>
 </div>

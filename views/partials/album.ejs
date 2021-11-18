@@ -2,17 +2,20 @@
     <h2 class="most-played-album-title">Your most played album is:</h2>
 
     <div class="most-played-album-section-content">
+        <br>
         <h1> <%= albumName %> </h1><br>
-        <h3> <%= songsFromAlbum %> songs from this album appeared in your Top 50 of all time!</h3><br>
+        <h3> <%= songsFromAlbum %> songs from this album appeared in your Top 50 songs of all time!</h3><br>
         <h2 class="most-played-album-section-content"><%= albumArtist %></h2>
 
-        <img class=""
+        <img class="most-played-images"
              src=<%= albumCover.url %>>
 
     </div>
 
-    <!--  <iframe src="https://open.spotify.com/embed/album/6WJvrBlL3zgu4mVoKyvMkl?utm_source=generator"-->
-    <!--          width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;-->
-    <!--      encrypted-media; fullscreen; picture-in-picture"></iframe>-->
+    <div class="spotify-embedded-album">
+        <iframe src="https://open.spotify.com/embed/album/<%= albumID %>?utm_source=generator"
+                width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
+          encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
 
 </div>
