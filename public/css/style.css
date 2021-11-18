@@ -32,6 +32,7 @@ a {
     position: fixed;
     background-color: whitesmoke;
     top: 0;
+    z-index: 2;
 }
 
 .navbar-container a {
