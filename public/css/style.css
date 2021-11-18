@@ -173,3 +173,25 @@ a {
   color: #1DB954;
   margin-top: 0.5em;
 }
+
+.login-button-landing-page {
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 5%;
+  width: 50vh;
+  background-color: #1DB954;
+  border-style: none;
+  border-radius: 25em;
+}
+
+.title-landing-page {
+  font-weight: bolder;
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 5%;
+  color: black;
+}

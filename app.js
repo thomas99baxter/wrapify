@@ -44,7 +44,11 @@ app.get('/test', (req, res) => {
         }
     );
 
-    res.send('<a href="/">Hello!</a>')
+    res.render("middleman.ejs")
+});
+
+app.get('/welcome', (req, res) => {
+    res.render("welcome.ejs")
 });
 
 
@@ -58,12 +62,12 @@ app.get('/', async (req, res) => {
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
         topSongs: songResult,
-        
+
         // favourite artist info
         topArtistName: artistResult[0].artist_name,
         topArtistCover: artistResult[0].artist_cover,
         topArtists: artistResult,
-        
+
         //favourite album information
         albumName: topAlbum.albumName,
         albumCover: topAlbum.albumCover,
