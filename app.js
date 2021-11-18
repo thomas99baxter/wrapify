@@ -24,7 +24,7 @@ app.listen(port, () => {
     console.log(`listening on port ${port}`)
 });
 
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
@@ -53,7 +53,7 @@ app.get('/test', (req, res) => {
 });
 
 
-app.get('/', async (req, res) => {
+app.get('/view', async (req, res) => {
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
