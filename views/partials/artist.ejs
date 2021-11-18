@@ -1,10 +1,16 @@
 <div id="artist-section" class="most-played-artist-section">
-  <h2>Your most played artist is:</h2>
+  <h2 class= "favourite-header-text">Your most played artist is:</h2>
 
   <div class="most-played-artist-section-content">
-      <h4><%= artistName %></h4>
+    <ul class="most-played-artist-ul-tag">
+      <% for(let i = 0; i < topArtists.length; i++) { %>
+        <li class="most-played-artist-li-tag"><%= topArtists[i].artist_name %></li>
+      <% } %>
+    </ul>
+    <div class="most-played-artist">
+      <h4><%= topArtistName %></h4>
       <img class="most-played-artist-images"
-           src=<%= artistCover.url %>
-      >
+        src=<%= topArtistCover.url %>>
+    </div>
   </div>
 </div>
