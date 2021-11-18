@@ -92,6 +92,15 @@ a {
 .most-played-images {
   width: 50vh;
   height: 50vh;
+  border-radius: 25%;
+  border-style: solid;
+  background-color: #1DB954;
+  border-width: thick;
+}
+
+.most-played-artist-images {
+  width: 50vh;
+  height: 50vh;
   border-radius: 50%;
   border-style: solid;
   background-color: #1DB954;

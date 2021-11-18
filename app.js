@@ -55,7 +55,9 @@ app.get('/', async (req, res) => {
     console.log(artistResult)
     res.render("index.ejs", {
         songName: songResult.song_name,
-        songCover: songResult.song_cover
+        songCover: songResult.song_cover,
+        artistName: artistResult.artist_name,
+        artistCover: artistResult.artist_cover
     })
 });
 
