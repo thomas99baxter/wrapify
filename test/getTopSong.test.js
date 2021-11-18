@@ -46,7 +46,7 @@ describe('GetTopSong', () => {
     it('should return an object with correct song value', async () => {
         result = await getTopTracks(spotifyApiStub);
         // Use deep equal here top stop javascript messing up object equality
-        expect(result).to.deep.equal(
+        expect(result[0]).to.deep.equal(
             {
                 "song_cover": {
                     "height": 100,
