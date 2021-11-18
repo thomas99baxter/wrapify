@@ -21,6 +21,6 @@ const topArtistsResponse = [
   }
 ]
 
-module.exports ={
+module.exports = {
   topArtistsResponse
 }
