@@ -1,14 +1,12 @@
-const chai = require('chai');
 const {expect} = require('chai');
-chai.use(require('chai-as-promised'))
 const sinon = require('sinon');
 // Mock responses from spotify api
-const { threeUniqueAlbumsMock, twoUniqueTwoDuplicateAlbumsMock} = require('./helpers/mocks/getAlbumsMocks');
-const { getMostListenedToAlbum } = require('../lib/getAlbums');
+const { topArtistsResponse} = require('./helpers/mocks/getArtistsMock');
+const { getTopArtists } = require('../lib/getArtists');
 const SpotifyWebApi = require('spotify-web-api-node');
 
-describe('getMostListenedToAlbum', () => {
-  // Initialise stub variable so it can be accessed in the tests
+describe('getMostListenedToArtist', () => {
+    // Initialise stub variable so it can be accessed in the tests
   let spotifyApiStub;
 
   // Create a fresh stub for each test
@@ -16,14 +14,14 @@ describe('getMostListenedToAlbum', () => {
     // Mock out the spotify api library
     // In this case we only use getMyTopTracks method
     spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
-      getMyTopTracks: sinon.stub().withArgs({
+      getMyTopArtists: sinon.stub().withArgs({
         time_range: "long_term",
-        limit: "10",
+        limit: "1",
         // API returns a promise so we have to return a promise after out stub
       }).resolves({
         body: {
           // Pass in our mocked response
-          items: twoUniqueTwoDuplicateAlbumsMock,
+          items: topArtistsResponse,
         }
       }),
     });  
@@ -34,32 +32,31 @@ describe('getMostListenedToAlbum', () => {
     sinon.restore();
   });
 
-  it('should call getMyTopTracks method once', () => {
-    getMostListenedToAlbum(spotifyApiStub);
+  it('should call getTopArtists method once', () => {
+    getTopArtists(spotifyApiStub);
     // Expect spotifyApiStub to have been called once
-    sinon.assert.calledOnce(spotifyApiStub.getMyTopTracks)
+    sinon.assert.calledOnce(spotifyApiStub.getMyTopArtists)
   });
 
   it('should return an object', async () => {
-    result = await getMostListenedToAlbum(spotifyApiStub);
+    let result = await getTopArtists(spotifyApiStub);
     expect(result).to.be.an.instanceOf(Object)
   });
 
-  it('should return an object with correct album value', async () => {
-    result = await getMostListenedToAlbum(spotifyApiStub);
+  it('should return an object with correct artist value', async () => {
+    result = await getTopArtists(spotifyApiStub);
     // Use deep equal here top stop javascript messing up object equality
-    expect(result).to.deep.equal({
-      albumName: "Techno Disco Tool",
-      albumArtist: "Mella Dee",
-      albumCover: {
-        width: 100,
-        height: 100,
-        href: "www.foobar.com"
+    expect(result[0]).to.deep.equal(
+    {
+      "artist_cover": {
+        "height": 100,
+        "href": "myHref",
+        "width": 100,
       },
-      songsFromAlbum: 2,
+      "artist_name": "deadmau5"
     })
   });
-  
+
   it('should fail', async() => {
     spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
       getMyTopTracks: sinon.stub().withArgs({
@@ -69,7 +66,6 @@ describe('getMostListenedToAlbum', () => {
       }).rejects(),
     });  
 
-    expect(getMostListenedToAlbum(spotifyApiStub)).to.be.rejectedWith(Error)
-    
+    expect(getTopArtists(spotifyApiStub)).to.be.rejectedWith(Error)
   });
 });

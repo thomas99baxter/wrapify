@@ -3,6 +3,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
 const { getMostListenedToAlbum } = require('./lib/getAlbums');
+const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
 
 app.set("view engine", "ejs");
@@ -48,14 +49,18 @@ app.get('/test', (req, res) => {
 
 
 app.get('/', async (req, res) => {
-    let topTracks = await getTopTracks(spotifyApi)
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
+    let songResult = await getTopTracks(spotifyApi)
+    let artistResult = await getTopArtists(spotifyApi)
 
     res.render("index.ejs", {
         //favourite song information
-        songName: topTracks.song_name,
-        songCover: topTracks.song_cover,
-
+        songName: songResult.song_name,
+        songCover: songResult.song_cover,
+        topArtistName: artistResult[0].artist_name,
+        topArtistCover: artistResult[0].artist_cover,
+        topArtists: artistResult,
+        
         //favourite album information
         albumName: topAlbum.albumName,
         albumCover: topAlbum.albumCover,
