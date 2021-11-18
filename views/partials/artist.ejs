@@ -1,9 +1,16 @@
 <div id="artist-section" class="most-played-artist-section">
-  <h2>Your most played artist is:</h2>
+  <h2 class= "favourite-header-text">Your most played artist is:</h2>
 
   <div class="most-played-artist-section-content">
-      <h4>Deadmau5</h4>
-      <img class="most-played-images"
-           src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+    <ul class="most-played-artist-ul-tag">
+      <% for(let i = 0; i < topArtists.length; i++) { %>
+        <li class="most-played-artist-li-tag"><%= topArtists[i].artist_name %></li>
+      <% } %>
+    </ul>
+    <div class="most-played-artist">
+      <h4><%= topArtistName %></h4>
+      <img class="most-played-artist-images"
+        src=<%= topArtistCover.url %>>
+    </div>
   </div>
 </div>
