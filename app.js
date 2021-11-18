@@ -60,5 +60,6 @@ app.get('/', async (req, res) => {
         albumName: topAlbum.albumName,
         albumCover: topAlbum.albumCover,
         songsFromAlbum: topAlbum.songsFromAlbum,
+        albumArtist: topAlbum.albumArtist,
     })
 });
