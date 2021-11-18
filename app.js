@@ -49,18 +49,12 @@ app.get('/test', (req, res) => {
 
 app.get('/', async (req, res) => {
     let result = await getTopTracks(spotifyApi)
-    console.log(result)
     res.render("index.ejs", {
         songName: result.song_name,
         songCover: result.song_cover
     })
 });
 
-app.get('/albums', (req, res) => {
-  spotifyApi.getAlbum('5U4W9E5WsYb2jUQWePT8Xm')
-  .then(function(data) {
-    console.log('Album information', data.body);
-  }, function(err) {
-    console.error(err);
-  });
-})
+app.get('/albums', async (req, res) => {
+  let result = await getMostListenedToAlbum(spotifyApi)
+});
