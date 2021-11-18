@@ -1,19 +1,22 @@
 <div id="song-section" class="most-played-song-section">
-  <h2 class= "favourite-header-text">Your most played song is:</h2>
+    <h2 class="favourite-header-text">Your most played songs are:</h2>
 
-  <div class="most-played-artist-section-content">
-    <div class="most-played-artist">
-    <h2><%= topSongName %> </h2>
+    <div class="most-played-song-section-content">
+        <div class="most-played-song-name-and-cover">
+            <h1><%= topSongName %> </h1>
+            <br>
+            <img id="cover" class="most-played-images" src=<%= topSongCover.url %>>
+            <img id="blurred" class="most-played-images" src=<%= topSongCover.url %>>
+        </div>
 
-      <img class="most-played-images"
-      src=<%= topSongCover.url %>>
+
+        <div class="most-played-song-list">
+            <ul class="most-played-song-ul-tag">
+                <% for(let i = 0; i < topSongs.length; i++) { %>
+                    <li class="most-played-artist-li-tag"><%= topSongs[i].song_name %></li>
+                <% } %>
+            </ul>
+        </div>
+
     </div>
-
-    <ul class="most-played-artist-ul-tag">
-      <% for(let i = 0; i < topSongs.length; i++) { %>
-        <li class="most-played-artist-li-tag"><%= topSongs[i].song_name %></li>
-      <% } %>
-    </ul>
-
-  </div>
 </div>
