@@ -1,11 +1,17 @@
 {
+  "nyc": {
+    "branches": "100",
+    "lines": "100",
+    "functions": "100",
+    "statements": "100"
+  },
   "name": "wrapify",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "coverage": "nyc mocha",
+    "coverage": "nyc --reporter=html --reporter=text --check-coverage=true mocha",
     "start": "nodemon app.js"
   },
   "repository": {
@@ -20,6 +26,7 @@
   "homepage": "https://github.com/thomas99baxter/wrapify#readme",
   "dependencies": {
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",

@@ -37,10 +37,12 @@ describe('GetTopSong', () => {
         // Expect spotifyApiStub to have been called once
         sinon.assert.calledOnce(spotifyApiStub.getMyTopTracks)
     });
+
     it('should return an object', async () => {
         let result = await getTopTracks(spotifyApiStub);
         expect(result).to.be.an.instanceOf(Object)
     });
+
     it('should return an object with correct song value', async () => {
         result = await getTopTracks(spotifyApiStub);
         // Use deep equal here top stop javascript messing up object equality
@@ -53,5 +55,17 @@ describe('GetTopSong', () => {
                 },
                 "song_name": "Going Bad (feat. Drake)"
         })
+    });
+
+    it('should fail', async() => {
+        spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
+          getMyTopTracks: sinon.stub().withArgs({
+            time_range: "long_term",
+            limit: "10",
+            // API returns a promise so we have to return a promise after out stub
+          }).rejects(),
+        });  
+    
+        expect(getTopTracks(spotifyApiStub)).to.be.rejectedWith(Error)
     });
 });
