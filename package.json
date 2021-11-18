@@ -1,11 +1,17 @@
 {
+  "nyc": {
+    "branches": "100",
+    "lines": "100",
+    "functions": "100",
+    "statements": "100"
+  },
   "name": "wrapify",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "coverage": "nyc mocha",
+    "coverage": "nyc --reporter=html --reporter=text --check-coverage=true mocha",
     "start": "nodemon app.js"
   },
   "repository": {

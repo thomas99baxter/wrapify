@@ -35,7 +35,7 @@ describe('getMostListenedToAlbum', () => {
   it('should call getMyTopTracks method once', () => {
     getMostListenedToAlbum(spotifyApiStub);
     // Expect spotifyApiStub to have been called once
-    sinon.assert.calledTwice(spotifyApiStub.getMyTopTracks)
+    sinon.assert.calledOnce(spotifyApiStub.getMyTopTracks)
   });
 
   it('should return an object', async () => {
