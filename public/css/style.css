@@ -68,21 +68,22 @@ a {
 
 /* SITE-WIDE IMAGES */
 
-.most-played-images {
+.most-played-images-square {
     width: 50vh;
     height: 50vh;
     border-radius: 5px;
     border-style: solid;
     background-color: #1DB954;
+    margin: 5%;
 }
 
-.most-played-artist-images {
-  width: 50vh;
-  height: 50vh;
-  border-radius: 50%;
-  border-style: solid;
-  background-color: #1DB954;
-  border-width: thick;
+.most-played-images-round {
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: #1DB954;
+    margin: 5%;
 }
 
 img {
@@ -98,7 +99,7 @@ img {
 
 #cover {
     z-index: 1;
-    position: absolute;
+    position: relative;
 }
 
 /* DECADE SECTION */
@@ -117,26 +118,37 @@ img {
     padding: 2.5% 5%;
 }
 
-.your-top-genres {
+.your-top-genres-container {
     background-color: #191414;
 }
 
 /* MOST PLAYED ALBUM SECTION */
 
-.most-played-album-section {
+.most-played-album-container {
     background-color: #1DB954;
 }
 
 .most-played-album-section-content {
     display: flex;
-    flex-direction: column;
-    float: left;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+    float: left;
     color: white;
 }
 
-.most-played-album-section .most-played-images {
+.most-played-album-container .most-played-images-square {
     float: left;
+}
+
+.most-played-album-name-and-cover {
+
+}
+
+.most-played-album-name {
+    white-space: nowrap;
 }
 
 .most-played-album-title {
@@ -145,9 +157,17 @@ img {
 }
 
 .spotify-embedded-album {
-    display: flex;
-    justify-content: right;
-    align-content: center;
+    align-content: flex-end;
+}
+
+.most-played-album-cover {
+    display: grid;
+    align-content: flex-start;
+}
+
+.most-played-album-cover #cover, #blurred {
+    grid-row: 1;
+    grid-column: 1;
 }
 
 #album-section {
@@ -158,7 +178,7 @@ img {
 
 /* MOST PLAYED ARTIST SECTION */
 
-.most-played-artist-section {
+.most-played-artist-container {
     background-color: #191414
 }
 
@@ -177,14 +197,33 @@ img {
     position: relative;
 }
 
-.most-played-artist-images {
-    width: 50vh;
-    height: 50vh;
-    border-radius: 50%;
-    border-style: solid;
-    background-color: #1DB954;
-    border-width: thick;
+.most-played-artist-cover {
+    display: grid;
+    align-content: flex-start;
 }
+
+.most-played-artist-cover #cover, #blurred {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.most-played-artist-name-and-cover {
+
+}
+
+.most-played-artist-name {
+    white-space: nowrap;
+}
+
+.most-played-artist-li-tag {
+    color: #1DB954;
+    margin-top: 0.5em;
+}
+
+.most-played-artist-list {
+    align-content: flex-start;
+}
+
 
 /* MOST PLAYED SONG SECTION */
 
@@ -194,7 +233,7 @@ img {
     padding: 2.5% 5%;
 }
 
-.most-played-song-section {
+.most-played-song-container {
     background-color: #FFFFFF;
 }
 
@@ -203,33 +242,42 @@ img {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0 auto;
+    margin: 0 auto;
     position: relative;
 }
 
+.most-played-song-name {
+    white-space: nowrap;
+}
+
+.most-played-song-cover {
+    display: grid;
+}
+
 .most-played-song-name-and-cover {
-  /*justify-content: right;*/
+
+}
+
+.most-played-song-cover #cover, #blurred {
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .most-played-song-list {
-  justify-content: center;
+    align-content: flex-end;
 }
 
-.most-played-song-section .most-played-images {
-    float: right;
+.most-played-song-container .most-played-images-square {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.most-played-song-ul-tag {
+.most-played-song-list-tag {
     color: #1DB954;
     list-style-type: decimal;
-    font-size: 1em;
+    font-size: 1.5em;
     margin-top: 1em;
     margin-left: 1em;
-}
-
-.most-played-artist-li-tag {
-    color: #1DB954;
-    margin-top: 0.5em;
 }
 
 /* LANDING PAGE STYLING */

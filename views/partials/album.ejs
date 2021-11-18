@@ -1,21 +1,27 @@
-<div id="album-section" class="most-played-album-section">
+<div id="album-section" class="most-played-album-container">
     <h2 class="most-played-album-title">Your most played album is:</h2>
 
     <div class="most-played-album-section-content">
-        <br>
-        <h1> <%= albumName %> </h1><br>
-        <h3> <%= songsFromAlbum %> songs from this album appeared in your Top 50 songs of all time!</h3><br>
-        <h2 class="most-played-album-section-content"><%= albumArtist %></h2>
+        <div class="most-played-album-name-and-cover">
 
-        <img class="most-played-images"
-             src=<%= albumCover.url %>>
+            <div class="most-played-album-name">
+                <h1> <%= albumName %> </h1><br>
+                <h3> <%= songsFromAlbum %> songs from this album appeared in your Top 50 songs of all time!</h3><br>
+                <h1><%= albumArtist %></h1>
+            </div>
 
-    </div>
+            <div class="most-played-album-cover">
+                <img id="cover" class="most-played-images-square" src=<%= albumCover.url %>>
+                <img id="blurred" class="most-played-images-square" src=<%= albumCover.url %>>
+            </div>
 
-    <div class="spotify-embedded-album">
-        <iframe src="https://open.spotify.com/embed/album/<%= albumID %>?utm_source=generator"
-                width="75%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
+        </div>
+
+        <div class="spotify-embedded-album">
+            <iframe src="https://open.spotify.com/embed/album/<%= albumID %>?utm_source=generator"
+                    width="100%" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
           encrypted-media; fullscreen; picture-in-picture"></iframe>
-    </div>
+        </div>
 
+    </div>
 </div>
