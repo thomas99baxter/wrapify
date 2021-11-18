@@ -3,6 +3,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
 const { getMostListenedToAlbum } = require('./lib/getAlbums');
+const { getTopTracks } = require('./lib/getSongs');
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -42,20 +43,17 @@ app.get('/test', (req, res) => {
         }
     );
 
-    res.send("hello!")
+    res.send('<a href="/">Hello!</a>')
 });
 
 
-app.get('/', (req, res) => {
-    let artists = [
-        {name: 'Deadmau5', song: 'Ghosts n stuff'},
-        {name: 'Delta sleep', song: 'Camp adventure'},
-        {name: 'Camelphat', song: 'Breathe'},
-        {name: 'Disclosure', song: 'white noise'},
-        {name: 'Bicep', song: 'Glue'}
-    ]
-    let slogan = 'Spotify wrapped whenever'
-    res.render("index.ejs", {artists: artists})
+app.get('/', async (req, res) => {
+    let result = await getTopTracks(spotifyApi)
+    console.log(result)
+    res.render("index.ejs", {
+        songName: result.song_name,
+        songCover: result.song_cover
+    })
 });
 
 app.get('/albums', (req, res) => {
@@ -66,10 +64,3 @@ app.get('/albums', (req, res) => {
     console.error(err);
   });
 })
-
-app.get('/top-tracks', async (req, res) => {
-
-  let albums = await getMostListenedToAlbum(spotifyApi);
-
-  console.log(albums)
-});
