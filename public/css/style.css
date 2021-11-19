@@ -128,12 +128,12 @@ img {
     text-align: center;
 }
 
-.most-played-x-name-and-cover {
+.most-played-song-name-and-cover {
     padding-top: 5%;
     padding-left: 10%;
     display: grid;
 }
-.most-played-x-name-and-cover #cover, #blurred {
+.most-played-song-name-and-cover #cover, #blurred {
     grid-column: 1;
     grid-row: 1;
 }
@@ -150,7 +150,7 @@ img {
 .most-played-song-list-tag {
     color: #1DB954;
     list-style-type: decimal;
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 
 /* MOST PLAYED ARTIST SECTION */
@@ -162,7 +162,7 @@ img {
 #artist-section {
     height: 100vh;
     width: 100%;
-    padding: 2.5% 5%;
+    padding: 1% 5%;
 }
 
 .most-played-artist-section-content {
@@ -173,19 +173,9 @@ img {
     margin: 0;
 }
 
-.most-played-artist-cover {
-    display: grid;
-    align-content: flex-start;
-}
-
-.most-played-artist-cover #cover, #blurred {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 .most-played-artist-name {
     white-space: nowrap;
-    left: 0;
+    right: 0;
     width: 100%;
     text-align: center;
 }
@@ -193,15 +183,23 @@ img {
 .most-played-artist-list-tag {
     color: #1DB954;
     list-style-type: decimal;
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 
 .most-played-artist-list {
     width: 50%;
+    padding-left: 10%;
 }
 
 .most-played-artist-name-and-cover {
+    padding-top: 5%;
+    padding-right: 10%;
     display: grid;
+}
+
+.most-played-artist-name-and-cover #cover, #blurred {
+    grid-column: 1;
+    grid-row: 1;
 }
 
 /* MOST PLAYED ALBUM SECTION */
