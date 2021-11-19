@@ -101,24 +101,107 @@ img {
     z-index: 1;
 }
 
-/* DECADE SECTION */
+/* MOST PLAYED SONG SECTION */
 
-#decade-section {
+#song-section {
+    height: 100vh;
+    width: 100%;
+    padding: 1% 5%;
+}
+
+.most-played-song-container {
+    background-color: #FFFFFF;
+}
+
+.most-played-x-section-content {
+    gap: 12.5%;
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.most-played-song-name {
+    white-space: nowrap;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.most-played-x-name-and-cover {
+    padding-top: 5%;
+    padding-left: 10%;
+    display: grid;
+}
+.most-played-x-name-and-cover #cover, #blurred {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.most-played-song-list {
+    width: 50%;
+}
+
+.most-played-song-container .most-played-images-square {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.most-played-song-list-tag {
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 1.5em;
+}
+
+/* MOST PLAYED ARTIST SECTION */
+
+.most-played-artist-container {
+    background-color: #191414
+}
+
+#artist-section {
     height: 100vh;
     width: 100%;
     padding: 2.5% 5%;
 }
 
-/* MOST PLAYED GENRE SECTION */
-
-#genre-section {
-    height: 100vh;
-    width: 100%;
-    padding: 2.5% 5%;
+.most-played-artist-section-content {
+    gap: 12.5%;
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+    margin: 0;
 }
 
-.your-top-genres-container {
-    background-color: #191414;
+.most-played-artist-cover {
+    display: grid;
+    align-content: flex-start;
+}
+
+.most-played-artist-cover #cover, #blurred {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.most-played-artist-name {
+    white-space: nowrap;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.most-played-artist-list-tag {
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 1.5em;
+}
+
+.most-played-artist-list {
+    width: 50%;
+}
+
+.most-played-artist-name-and-cover {
+    display: grid;
 }
 
 /* MOST PLAYED ALBUM SECTION */
@@ -133,7 +216,6 @@ img {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    position: relative;
     float: left;
     color: white;
 }
@@ -175,107 +257,25 @@ img {
     padding: 2.5% 5%;
 }
 
-/* MOST PLAYED ARTIST SECTION */
+/* MOST PLAYED GENRE SECTION */
 
-.most-played-artist-container {
-    background-color: #191414
-}
-
-#artist-section {
+#genre-section {
     height: 100vh;
     width: 100%;
     padding: 2.5% 5%;
 }
 
-.most-played-artist-section-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    position: relative;
-}
-
-.most-played-artist-cover {
-    display: grid;
-    align-content: flex-start;
-}
-
-.most-played-artist-cover #cover, #blurred {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.most-played-artist-name-and-cover {
-    display: flex;
-    align-items: center;
-}
-
-.most-played-artist-name {
-    white-space: nowrap;
-}
-
-.most-played-artist-li-tag {
-    color: #1DB954;
-    margin-top: 0.5em;
-}
-
-.most-played-artist-list {
-    align-content: flex-start;
+.your-top-genres-container {
+    background-color: #191414;
 }
 
 
-/* MOST PLAYED SONG SECTION */
+/* DECADE SECTION */
 
-#song-section {
+#decade-section {
     height: 100vh;
     width: 100%;
-    padding: 1% 5%;
-}
-
-.most-played-song-container {
-    background-color: #FFFFFF;
-}
-
-.most-played-song-section-content {
-    gap: 12.5%;
-    display: flex;
-    align-content: space-around;
-    align-items: center;
-    margin: 0;
-}
-
-.most-played-song-name {
-    white-space: nowrap;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-.most-played-song-name-and-cover {
-    padding-top: 5%;
-    padding-left: 10%;
-    display: grid;
-}
-.most-played-song-name-and-cover #cover, #blurred {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.most-played-song-list {
-    width: 50%;
-}
-
-.most-played-song-container .most-played-images-square {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.most-played-song-list-tag {
-    color: #1DB954;
-    list-style-type: decimal;
-    font-size: 1.5em;
-    margin-top: 1em;
-    margin-left: 1em;
+    padding: 2.5% 5%;
 }
 
 /* LANDING PAGE STYLING */
