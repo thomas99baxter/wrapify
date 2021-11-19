@@ -5,6 +5,7 @@ const app = express();
 const { getMostListenedToAlbum } = require('./lib/getAlbums');
 const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
+const { getTopGenres } = require('./lib/getGenres');
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -48,6 +49,7 @@ app.get('/test/', (req, res) => {
             console.log('Something went wrong!', err);
         }
     );
+
 });
 
 
@@ -55,6 +57,7 @@ app.get('/view', async (req, res) => {
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
+    let genresResult = await getTopGenres(spotifyApi)
 
     res.render("index.ejs", {
         // favourite song info
@@ -73,5 +76,9 @@ app.get('/view', async (req, res) => {
         songsFromAlbum: topAlbum.songsFromAlbum,
         albumArtist: topAlbum.albumArtist,
         albumID: topAlbum.albumID,
+
+        // favourite genre information
+        mostListenedGenre: genresResult[0],
+        topTenGenres: genresResult
     })
 });
