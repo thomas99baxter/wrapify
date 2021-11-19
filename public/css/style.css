@@ -69,6 +69,13 @@ a {
 
 /* SITE-WIDE IMAGES */
 
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
 .most-played-images-square {
     width: 60vh;
     height: 60vh;
@@ -83,13 +90,6 @@ a {
     border-radius: 50%;
     border-style: solid;
     background-color: #1DB954;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-    display: block;
 }
 
 #blurred {
@@ -116,10 +116,9 @@ img {
 }
 
 .most-played-x-section-content {
-    padding: 5%;
+    padding: 4%;
     gap: 12.5%;
     display: flex;
-    align-content: space-around;
     align-items: center;
     margin: 0;
 }
@@ -141,7 +140,7 @@ img {
 }
 
 .most-played-song-list {
-    width: 60%;
+    width: 50%;
 }
 
 .most-played-song-container .most-played-images-square {
@@ -164,7 +163,7 @@ img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 2%;
     border-radius: 10px;
-    margin: 2.5%;
+    margin: 4%;
 }
 
 
@@ -343,11 +342,10 @@ img {
   color: #1DB954;
 }
 
-@media only screen and (max-device-width: 600px) {
-    img {
-        width: 30vh;
-        height: 30vh;
-    }
-
-
-}
+/*@media (max-width: 800px) {*/
+/*    .most-played-images-square {*/
+/*        max-width: 30vh;*/
+/*        width: 30vh;*/
+/*        height: 30vh;*/
+/*    }*/
+/*}*/
