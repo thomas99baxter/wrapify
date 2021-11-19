@@ -96,18 +96,18 @@ img {
     z-index: 0;
     filter: blur(60px);
     align-self: center;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 #cover {
+    grid-column: 1;
+    grid-row: 1;
     align-self: center;
     z-index: 1;
 }
 
-/* MOST PLAYED SONG SECTION */
-
-#song-section {
-    background-color: #FFFFFF;
-}
+/* ALL SECTIONS */
 
 .most-played-x-container {
     height: 100vh;
@@ -116,11 +116,21 @@ img {
 }
 
 .most-played-x-section-content {
-    padding: 4%;
-    gap: 12.5%;
     display: flex;
     align-items: center;
+    padding: 4%;
+    gap: 12.5%;
     margin: 0;
+}
+
+.most-played-x-name-and-cover {
+    display: grid;
+}
+
+/* MOST PLAYED SONG SECTION */
+
+#song-section {
+    background-color: #FFFFFF;
 }
 
 .most-played-song-name {
@@ -130,22 +140,8 @@ img {
     text-align: center;
 }
 
-.most-played-song-name-and-cover {
-    display: grid;
-}
-
-.most-played-song-name-and-cover #cover, #blurred {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 .most-played-song-list {
     width: 50%;
-}
-
-.most-played-song-container .most-played-images-square {
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .most-played-song-list-tag {
@@ -208,15 +204,16 @@ img {
     display: grid;
 }
 
-.most-played-artist-name-and-cover #cover, #blurred {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 /* MOST PLAYED ALBUM SECTION */
 
 #album-section {
     background-color: #1DB954;
+}
+
+.favourite-header-text-album {
+    color: white;
+    font-size: 3em;
+    white-space: nowrap;
 }
 
 .most-played-album-section-content {
@@ -229,42 +226,17 @@ img {
     color: white;
 }
 
-.most-played-album-container .most-played-images-square {
-    float: left;
-}
-
-.most-played-album-name-and-cover {
-
-}
-
-.most-played-album-name {
-    white-space: nowrap;
+.most-played-album-name-amount-artist-name {
+    text-align: center;
     color: white;
-}
-
-.most-played-album-title {
-    color: black;
-    font-size: xxx-large;
-}
-
-.spotify-embedded-album {
-    align-content: flex-end;
-}
-
-.most-played-album-cover {
-    display: grid;
-    align-content: flex-start;
-}
-
-.most-played-album-cover #cover, #blurred {
-    grid-row: 1;
-    grid-column: 1;
-}
-
-#album-section {
-    height: 100vh;
+    left: 0;
     width: 100%;
-    padding: 2.5% 5%;
+    padding-top: 3.5%;
+}
+
+.spotify-embedded-album-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 60%;
 }
 
 /* MOST PLAYED GENRE SECTION */
@@ -312,34 +284,38 @@ img {
 }
 
 .grid-container {
-  display: flex !important;
-  flex-direction: column;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
-}
-.grid-item {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
 }
 
-.most-played-genre-ul-tag{
-  column-count: 2;
-  column-gap: 5em;
-  color: #1DB954;
-  list-style-type: decimal;
-  font-size: 2em;
-  margin-top: 1em;
-  margin-left: 1em;
-  padding-top: 1em;
+.grid-item {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.most-played-genre-ul-tag {
+    column-count: 2;
+    column-gap: 5em;
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-left: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    list-style-position: inside;
+    border-radius: 25px;
+    padding: 2.5%
 }
 
 .most-played-genre-li-tag {
-  color: #1DB954;
+    color: #1DB954;
 }
 
 /*@media (max-width: 800px) {*/
