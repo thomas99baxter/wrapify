@@ -134,13 +134,14 @@ img {
 .most-played-song-name-and-cover {
     display: grid;
 }
+
 .most-played-song-name-and-cover #cover, #blurred {
     grid-column: 1;
     grid-row: 1;
 }
 
 .most-played-song-list {
-    width: 50%;
+    width: 60%;
 }
 
 .most-played-song-container .most-played-images-square {
@@ -151,13 +152,21 @@ img {
 .most-played-song-list-tag {
     color: #1DB954;
     list-style-type: decimal;
-    font-size: 1.75em;
+    font-size: 1.5em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     list-style-position: inside;
     border-radius: 25px;
-    padding: 2%;
+    padding: 2.5%
 }
+
+.most-played-song-list-inside-songs {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2%;
+    border-radius: 10px;
+    margin: 2.5%;
+}
+
 
 /* MOST PLAYED ARTIST SECTION */
 
@@ -332,4 +341,13 @@ img {
 
 .most-played-genre-li-tag {
   color: #1DB954;
+}
+
+@media only screen and (max-device-width: 600px) {
+    img {
+        width: 30vh;
+        height: 30vh;
+    }
+
+
 }
