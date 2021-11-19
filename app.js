@@ -5,7 +5,8 @@ const app = express();
 const { getMostListenedToAlbum } = require('./lib/getAlbums');
 const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
-
+const { getTopGenres } = require('./lib/getGenres');
+ 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
@@ -56,6 +57,7 @@ app.get('/view', async (req, res) => {
     let topAlbum = await getMostListenedToAlbum(spotifyApi)
     let songResult = await getTopTracks(spotifyApi)
     let artistResult = await getTopArtists(spotifyApi)
+    let genresResult = await getTopGenres(spotifyApi)
 
     res.render("index.ejs", {
         // favourite song info
