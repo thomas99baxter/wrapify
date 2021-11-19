@@ -185,5 +185,19 @@ a {
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  
+}
+
+.most-played-genre-ul-tag{
+  column-count: 2;
+  column-gap: 5em;
+  color: #1DB954;
+  list-style-type: decimal;
+  font-size: 2em;
+  margin-top: 1em;
+  margin-left: 1em;
+  padding-top: 1em;
+}
+
+.most-played-genre-li-tag {
+  color: #1DB954;
 }
