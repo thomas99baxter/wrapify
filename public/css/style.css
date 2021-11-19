@@ -64,6 +64,7 @@ a {
 
 .favourite-header-text {
     font-size: 3em;
+    white-space: nowrap;
 }
 
 /* SITE-WIDE IMAGES */
@@ -92,14 +93,12 @@ img {
 }
 
 #blurred {
-    position: absolute;
     z-index: 0;
     filter: blur(100px);
 }
 
 #cover {
     z-index: 1;
-    position: relative;
 }
 
 /* DECADE SECTION */
@@ -191,8 +190,7 @@ img {
 .most-played-artist-section-content {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0 auto;
     position: relative;
 }
@@ -208,7 +206,8 @@ img {
 }
 
 .most-played-artist-name-and-cover {
-
+    display: flex;
+    align-items: center;
 }
 
 .most-played-artist-name {
@@ -230,7 +229,7 @@ img {
 #song-section {
     height: 100vh;
     width: 100%;
-    padding: 2.5% 5%;
+    padding: 1% 5%;
 }
 
 .most-played-song-container {
@@ -238,33 +237,32 @@ img {
 }
 
 .most-played-song-section-content {
+    gap: 12.5%;
     display: flex;
-    flex-direction: row;
+    align-content: space-around;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    position: relative;
+    margin: 0;
 }
 
 .most-played-song-name {
     white-space: nowrap;
-}
-
-.most-played-song-cover {
-    display: grid;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .most-played-song-name-and-cover {
-
+    padding-top: 5%;
+    padding-left: 10%;
+    display: grid;
 }
-
-.most-played-song-cover #cover, #blurred {
+.most-played-song-name-and-cover #cover, #blurred {
     grid-column: 1;
     grid-row: 1;
 }
 
 .most-played-song-list {
-    align-content: flex-end;
+    width: 50%;
 }
 
 .most-played-song-container .most-played-images-square {
