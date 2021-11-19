@@ -6,7 +6,7 @@ const { getMostListenedToAlbum } = require('./lib/getAlbums');
 const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
- 
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
@@ -75,5 +75,9 @@ app.get('/view', async (req, res) => {
         albumCover: topAlbum.albumCover,
         songsFromAlbum: topAlbum.songsFromAlbum,
         albumArtist: topAlbum.albumArtist,
+
+        // favourite genre information
+        mostListenedGenre: genresResult[0],
+        topTenGenres: genresResult
     })
 });

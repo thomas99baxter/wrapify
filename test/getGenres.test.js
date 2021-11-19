@@ -47,7 +47,6 @@ describe('getMostListenedToGenres', () => {
   it('should return an array with correct object value', async () => {
     result = await getTopGenres(spotifyApiStub);
     // Use deep equal here top stop javascript messing up object equality
-    console.log(result)
     expect(result).to.deep.equal([
         [ 'rap', 5 ],
         [ 'hip hop', 3 ],
