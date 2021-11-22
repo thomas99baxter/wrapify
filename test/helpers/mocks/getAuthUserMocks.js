@@ -1,7 +1,7 @@
-const authorizedUserResponse = [
+const currentUserResponseMock =
     {
         country: 'GB',
-        display_name: 'wrapifiy_user',
+        display_name: 'wrapify_user',
         email: 'foobar@email.com',
         explicit_content: { filter_enabled: false, filter_locked: false },
         external_urls: { spotify: 'https://open.spotify.com/user/username' },
@@ -11,7 +11,7 @@ const authorizedUserResponse = [
         images: [
             {
                 height: null,
-                url: 'url',
+                url: 'user_url',
                 width: null
             }
         ],
@@ -19,8 +19,7 @@ const authorizedUserResponse = [
         type: 'user',
         uri: 'spotify:user:user_name'
     }
-]
 
 module.exports = {
-    authorizedUserResponseMock: authorizedUserResponse,
+    currentUserResponseMock,
 }

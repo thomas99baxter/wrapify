@@ -67,6 +67,10 @@ a {
     white-space: nowrap;
 }
 
+#username {
+    padding-left: 0;
+}
+
 /* SITE-WIDE IMAGES */
 
 img {
@@ -74,6 +78,14 @@ img {
     height: auto;
     width: auto;
     display: block;
+}
+
+#profile-image {
+    border-style: solid;
+    border-radius: 25em;
+    width: 4%;
+    height: 4%;
+    align-self: center;
 }
 
 .most-played-images-square {
