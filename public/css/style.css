@@ -169,14 +169,6 @@ img {
     background-color: #191414;
 }
 
-.most-played-artist-section-content {
-    gap: 12.5%;
-    display: flex;
-    align-content: space-around;
-    align-items: center;
-    margin: 0;
-}
-
 .most-played-artist-name {
     padding-top: 3.5%;
     left: 0;
@@ -214,16 +206,6 @@ img {
     color: white;
     font-size: 3em;
     white-space: nowrap;
-}
-
-.most-played-album-section-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    float: left;
-    color: white;
 }
 
 .most-played-album-name-amount-artist-name {
@@ -319,6 +301,7 @@ img {
 }
 
 /*@media (max-width: 800px) {*/
+
 /*    .most-played-images-square {*/
 /*        max-width: 30vh;*/
 /*        width: 30vh;*/
