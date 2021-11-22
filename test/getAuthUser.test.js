@@ -50,7 +50,7 @@ describe('GetAuthorizedUser', () => {
 
     it('should fail', async () => {
         spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
-            getMyTopTracks: sinon.stub().withArgs().rejects(),
+            getMe: sinon.stub().withArgs().rejects(),
         });
 
         expect(getCurrentUser(spotifyApiStub)).to.be.rejectedWith(Error)
