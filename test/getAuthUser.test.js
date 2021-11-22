@@ -47,17 +47,13 @@ describe('GetAuthorizedUser', () => {
             }
         )
     });
-//
-//     it('should fail', async () => {
-//         spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
-//             getMyTopTracks: sinon.stub().withArgs({
-//                 time_range: "long_term",
-//                 limit: "10",
-//                 // API returns a promise so we have to return a promise after out stub
-//             }).rejects(),
-//         });
-//
-//         expect(getTopTracks(spotifyApiStub)).to.be.rejectedWith(Error)
-//     });
+
+    it('should fail', async () => {
+        spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
+            getMyTopTracks: sinon.stub().withArgs().rejects(),
+        });
+
+        expect(getCurrentUser(spotifyApiStub)).to.be.rejectedWith(Error)
+    });
 
 });
