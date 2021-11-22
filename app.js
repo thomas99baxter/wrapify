@@ -6,7 +6,8 @@ const { getMostListenedToAlbum } = require('./lib/getAlbums');
 const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
-const {getAuthorisedUser, getCurrentUser} = require("./lib/getCurrentUser");
+const { getCurrentUser } = require("./lib/getCurrentUser");
+const { getMostListenedToDecade } = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -64,7 +65,7 @@ app.get('/view', async (req, res) => {
     let artistResult = await getTopArtists(spotifyApi);
     let genresResult = await getTopGenres(spotifyApi);
     let currentUser = await getCurrentUser(spotifyApi);
-
+    let topDecade = await getMostListenedToDecade(spotifyApi);
     res.render("index.ejs", {
         // favourite song info
         topSongName: songResult[0].song_name,
