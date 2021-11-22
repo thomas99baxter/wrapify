@@ -1,203 +1,327 @@
 body {
-  font-family: Circular, Helvetica, Arial, sans-serif;
-  font-size: large;
-  color: #1DB954;
-  margin-top: 4em;
+    font-family: Circular, Helvetica, Arial, sans-serif;
+    font-size: large;
+    color: #1DB954;
+    margin-top: 4em;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6,a{
-  margin:0;
+h1, h2, h3, h4, h5, h6, a {
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  position: fixed;
-  background-color: whitesmoke;
-  top: 0;
+/* NAVBAR CSS STYLINGS */
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    position: fixed;
+    background-color: whitesmoke;
+    top: 0;
+    z-index: 2;
 }
 
-.container a {
-  padding: 22px;
-  white-space: nowrap;
+.navbar-container a {
+    padding: 22px;
+    white-space: nowrap;
 }
 
 .nav-link-left {
-  margin-right: 1em;
+    margin-right: 1em;
 }
 
 .navbar-brand {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-link-right {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .flex-container {
-  display: flex;
-  flex-direction: column;
-}
-
-#album-section {
-  height: 100vh;
-  width: 100%;
-  padding: 2.5% 5%;
-}
-
-#artist-section {
-  height: 100vh;
-  width: 100%;
-  padding: 2.5% 5%;
-}
-
-#song-section {
-  height: 100vh;
-  width: 100%;
-  padding: 2.5% 5%;
-}
-
-#decade-section {
-  height: 100vh;
-  width: 100%;
-  padding: 2.5% 5%;
-}
-
-#genre-section {
-  height: 100vh;
-  width: 100%;
-  padding: 2.5% 5%;
+    display: flex;
+    flex-direction: column;
 }
 
 #section h2 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .favourite-header-text {
-  font-size: 3em;
+    font-size: 3em;
+    white-space: nowrap;
 }
 
-.most-played-images {
-  width: 50vh;
-  height: 50vh;
-  border-radius: 25%;
-  border-style: solid;
-  background-color: #1DB954;
-  border-width: thick;
+#username {
+    padding-left: 0;
 }
 
-.most-played-artist-images {
-  width: 50vh;
-  height: 50vh;
-  border-radius: 50%;
-  border-style: solid;
-  background-color: #1DB954;
-  border-width: thick;
+/* SITE-WIDE IMAGES */
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
 }
 
-.most-played-song-section {
-  background-color: #FFFFFF;
+#profile-image {
+    border-style: solid;
+    border-radius: 25em;
+    width: 4%;
+    height: 4%;
+    align-self: center;
 }
 
-.most-played-artist-section {
-  background-color: #191414
-
+.most-played-images-square {
+    width: 60vh;
+    height: 60vh;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #1DB954;
 }
 
-.most-played-artist-section-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+.most-played-images-circle {
+    width: 60vh;
+    height: 60vh;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: #1DB954;
 }
 
-.most-played-artist-section .most-played-images {
-  float: right;
+#blurred {
+    z-index: 0;
+    filter: blur(60px);
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.most-played-album-section {
-  background-color: #1DB954;
+#cover {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    z-index: 1;
 }
 
-.most-played-album-section-content {
-  display: flex;
-  flex-direction: column;
-  float: left;
-  align-items: center;
-  color: white;
+/* ALL SECTIONS */
+
+.most-played-x-container {
+    height: 100vh;
+    width: 100%;
+    padding: 1% 2%;
 }
 
-.most-played-album-section .most-played-images {
-  float: left;
+.most-played-x-section-content {
+    display: flex;
+    align-items: center;
+    padding: 4%;
+    gap: 12.5%;
+    margin: 0;
 }
 
-.most-played-album-title {
-  color: black;
-  font-size: xxx-large;
+.most-played-x-name-and-cover {
+    display: grid;
 }
 
-.your-top-genres {
-  background-color: #191414;
+/* MOST PLAYED SONG SECTION */
+
+#song-section {
+    background-color: #FFFFFF;
+}
+
+.most-played-song-name {
+    padding-top: 3.5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.most-played-song-list {
+    width: 50%;
+}
+
+.most-played-song-list-tag {
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    list-style-position: inside;
+    border-radius: 25px;
+    padding: 2.5%
+}
+
+.most-played-song-list-inside-songs {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2%;
+    border-radius: 10px;
+    margin: 4%;
 }
 
 
+/* MOST PLAYED ARTIST SECTION */
 
-.most-played-artist-ul-tag {
-  color: #1DB954;
-  list-style-type: decimal;
-  font-size: 2em;
-  margin-top: 1em;
-  margin-left: 1em;
+#artist-section {
+    background-color: #191414;
 }
 
-.most-played-artist-li-tag {
-  color: #1DB954;
-  margin-top: 0.5em;
+.most-played-artist-name {
+    padding-top: 3.5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.most-played-artist-list-tag {
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 1.75em;
+    text-align: center;
+    list-style-position: inside;
+    padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #292929;
+    border-radius: 25px;
+}
+
+.most-played-artist-list {
+    width: 50%;
+}
+
+.most-played-artist-name-and-cover {
+    display: grid;
+}
+
+/* MOST PLAYED ALBUM SECTION */
+
+#album-section {
+    background-color: #1DB954;
+}
+
+.favourite-header-text-album {
+    color: white;
+    font-size: 3em;
+    white-space: nowrap;
+}
+
+.most-played-album-name-amount-artist-name {
+    text-align: center;
+    color: white;
+    left: 0;
+    width: 100%;
+    padding-top: 3.5%;
+}
+
+.spotify-embedded-album-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 60%;
+}
+
+/* MOST PLAYED GENRE SECTION */
+
+#genre-section {
+    background-color: #191414;
+}
+
+/* DECADE SECTION */
+
+#decade-section {
+    background-color: #FFFFFF;
+}
+
+/* LANDING PAGE STYLING */
+
+.login-button-landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #1DB954;
+    border-style: none;
+    border-radius: 25em;
+    width: 10em;
+    height: 2em;
+    color: #191414;
+    font-family: 'Raleway', sans-serif;
+}
+
+.welcome-page-outer-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-landing-page {
+    font-weight: bolder;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 5%;
+    color: black;
 }
 
 .grid-container {
-  display: flex !important;
-  flex-direction: column;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
-}
-.grid-item {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
 }
 
-.most-played-genre-ul-tag{
-  column-count: 2;
-  column-gap: 5em;
-  color: #1DB954;
-  list-style-type: decimal;
-  font-size: 2em;
-  margin-top: 1em;
-  margin-left: 1em;
-  padding-top: 1em;
+.grid-item {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.most-played-genre-ul-tag {
+    column-count: 2;
+    column-gap: 5em;
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-left: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    list-style-position: inside;
+    border-radius: 25px;
+    padding: 2.5%
 }
 
 .most-played-genre-li-tag {
-  color: #1DB954;
+    color: #1DB954;
 }
+
+.tagline-landing-page {
+  font-size: 1em;
+}
+
+/*@media (max-width: 800px) {*/
+
+/*    .most-played-images-square {*/
+/*        max-width: 30vh;*/
+/*        width: 30vh;*/
+/*        height: 30vh;*/
+/*    }*/
+/*}*/
