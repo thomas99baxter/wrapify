@@ -1,30 +1,30 @@
 const {expect} = require('chai');
 const sinon = require('sinon');
 // Mock responses from spotify api
-const {topSongMockResponse } = require('./helpers/mocks/getTopSongMocks');
-const { getTopTracks } = require('../lib/getSongs');
+const {topSongMockResponse} = require('./helpers/mocks/getTopSongMocks');
+const {getTopTracks} = require('../lib/getSongs');
 const SpotifyWebApi = require('spotify-web-api-node');
 
 describe('GetTopSong', () => {
-     // Initialise stub variable so it can be accessed in the tests
-  let spotifyApiStub;
+    // Initialise stub variable so it can be accessed in the tests
+    let spotifyApiStub;
 
-  // Create a fresh stub for each test
+    // Create a fresh stub for each test
     beforeEach(() => {
         // Mock out the spotify api library
         // In this case we only use getMyTopTracks method
         spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
-        getMyTopTracks: sinon.stub().withArgs({
-            time_range: "long_term",
-            limit: "1",
-            // API returns a promise so we have to return a promise after out stub
-        }).resolves({
-            body: {
-            // Pass in our mocked response
-            items: topSongMockResponse,
-            }
-        }),
-        });  
+            getMyTopTracks: sinon.stub().withArgs({
+                time_range: "long_term",
+                limit: "1",
+                // API returns a promise so we have to return a promise after out stub
+            }).resolves({
+                body: {
+                    // Pass in our mocked response
+                    items: topSongMockResponse,
+                }
+            }),
+        });
     });
 
     afterEach(() => {
@@ -54,18 +54,18 @@ describe('GetTopSong', () => {
                     "width": 100,
                 },
                 "song_name": "Going Bad (feat. Drake)"
-        })
+            })
     });
 
-    it('should fail', async() => {
+    it('should fail', async () => {
         spotifyApiStub = sinon.createStubInstance(SpotifyWebApi, {
-          getMyTopTracks: sinon.stub().withArgs({
-            time_range: "long_term",
-            limit: "10",
-            // API returns a promise so we have to return a promise after out stub
-          }).rejects(),
-        });  
-    
+            getMyTopTracks: sinon.stub().withArgs({
+                time_range: "long_term",
+                limit: "10",
+                // API returns a promise so we have to return a promise after out stub
+            }).rejects(),
+        });
+
         expect(getTopTracks(spotifyApiStub)).to.be.rejectedWith(Error)
     });
 });
