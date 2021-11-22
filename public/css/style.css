@@ -44,6 +44,14 @@ a {
 .navbar-brand {
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+}
+
+.navbar-name {
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
 }
 
 .nav-link-right {
@@ -203,5 +211,8 @@ a {
 }
 
 .wrapify-logo {
-  height: 5%;
+  height: auto;
+  width: auto;
+  max-height: 4em;
+  max-width: 4em;
 }
