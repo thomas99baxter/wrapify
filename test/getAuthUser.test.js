@@ -55,5 +55,4 @@ describe('GetAuthorizedUser', () => {
 
         expect(getCurrentUser(spotifyApiStub)).to.be.rejectedWith(Error)
     });
-
 });
