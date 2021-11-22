@@ -64,17 +64,18 @@ app.get('/view', async (req, res) => {
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
         topSongs: songResult,
-        
+
         // favourite artist info
         topArtistName: artistResult[0].artist_name,
         topArtistCover: artistResult[0].artist_cover,
         topArtists: artistResult,
-        
+
         //favourite album information
         albumName: topAlbum.albumName,
         albumCover: topAlbum.albumCover,
         songsFromAlbum: topAlbum.songsFromAlbum,
         albumArtist: topAlbum.albumArtist,
+        albumID: topAlbum.albumID,
 
         // favourite genre information
         mostListenedGenre: genresResult[0],
