@@ -1,0 +1,27 @@
+// Get the authenticated user
+const getCurrentUser = async (spotifyApi) => {
+    try {
+        let filteredInformation = []
+        let currentAuthorisedUser = await spotifyApi.getMe({
+            time_range: "long_term",
+            limit: "1",
+        });
+
+        currentAuthorisedUser.body.map((user) => {
+            filteredInformation.push({
+                display_name: user.display_name,
+                // user_id: user.id,
+                // profile_image: user.images.url,
+                // profile_url: user.external_urls.spotify,
+                // premium_bool: user.product,
+            })
+        })
+        return filteredInformation;
+    } catch (err) {
+        Promise.reject(err)
+    }
+}
+
+module.exports = {
+    getCurrentUser,
+}
