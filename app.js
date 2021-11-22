@@ -26,12 +26,17 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
+
+    res.render("welcome.ejs")
+});
+
+app.get('/login', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
     res.redirect(authorizeURL)
-});
+})
 
 app.get('/test/', (req, res) => {
     spotifyApi.authorizationCodeGrant(req.query.code).then(

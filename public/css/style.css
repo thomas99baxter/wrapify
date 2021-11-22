@@ -248,6 +248,7 @@ img {
     width: 10em;
     height: 2em;
     color: #191414;
+    font-family: 'Raleway', sans-serif;
 }
 
 .welcome-page-outer-div {
@@ -298,6 +299,10 @@ img {
 
 .most-played-genre-li-tag {
     color: #1DB954;
+}
+
+.tagline-landing-page {
+  font-size: 1em;
 }
 
 /*@media (max-width: 800px) {*/
