@@ -4,11 +4,10 @@
   <div class="most-played-artist-section-content">
     <ul class="most-played-artist-ul-tag">
       <% for(let i = 0; i < topArtists.length; i++) { %>
-        <li class="most-played-artist-li-tag"><%= topArtists[i].artist_name %></li>
+        <li class="most-played-li-tag"><%= topArtists[i].artist_name %></li>
       <% } %>
     </ul>
     <div class="most-played-artist">
-      <h4><%= topArtistName %></h4>
       <img class="most-played-artist-images"
         src=<%= topArtistCover.url %>>
     </div>
