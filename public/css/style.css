@@ -45,8 +45,16 @@ a {
 }
 
 .navbar-brand {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.navbar-name {
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
 }
 
 .nav-link-right {
@@ -325,6 +333,12 @@ img {
     text-align: center;
 }
 
+.wrapify-logo {
+  height: auto;
+  width: auto;
+  max-height: 4em;
+  max-width: 4em;
+}
 .tagline-landing-page {
   font-size: 1em;
 }
