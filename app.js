@@ -23,6 +23,8 @@ if (port == null || port == "") {
   port = 8080;
 }
 
+let TIME_RANGE = 'long_term';
+
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
 });
@@ -103,3 +105,18 @@ app.get('/view', async (req, res) => {
         topDecade: topDecade,
     })
 });
+
+app.get('/view/short-term', (req, res) => {
+    TIME_RANGE = 'short_term';
+    res.redirect('/view')
+})
+
+app.get('/view/medium-term', (req, res) => {
+    TIME_RANGE = 'medium_term';
+    res.redirect('/view')
+})
+
+app.get('/view/long-term', (req, res) => {
+    TIME_RANGE = 'long_term';
+    res.redirect('/view')
+})
