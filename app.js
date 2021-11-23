@@ -61,11 +61,11 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
-    let topAlbum = await getMostListenedToAlbum(spotifyApi, "long_term");
-    let songResult = await getTopTracks(spotifyApi, "long_term");
-    let artistResult = await getTopArtists(spotifyApi, "long_term");
-    let genresResult = await getTopGenres(spotifyApi, "long_term");
-    let currentUser = await getCurrentUser(spotifyApi, "long_term");
+    let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
+    let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
+    let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
+    let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
+    let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
 
     res.render("index.ejs", {
         // favourite song info
@@ -98,12 +98,10 @@ app.get('/view', async (req, res) => {
 
 app.get('/view/short-term', (req, res) => {
     TIME_RANGE = 'short_term';
-
     res.redirect('/view')
 })
 
 app.get('/view/medium-term', (req, res) => {
-    TIME_RANGE = 'short_term';
-
+    TIME_RANGE = 'medium_term';
     res.redirect('/view')
 })
