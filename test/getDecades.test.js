@@ -45,7 +45,53 @@ describe('getDecade', () => {
 
     it('should return a pretty object', async () => {
       let result = await getMostListenedToDecade(spotifyApiStub);
-      expect(result).to.be.an.instanceOf(Object)
+      expect(result).to.deep.equal([
+        {
+          releaseDate: '2017-11-29',
+          releaseDecade: 2010,
+          songName: 'Techno Disco Tool',
+          image: {
+            height: 640,
+            url: 'https://i.scdn.co/image/ab6761610000e5ebef86feb3e2b9c57897ddc453',
+            width: 640
+          },
+          link: 'spotify:track:4dGWqeULKD767yx9NIMcEv'
+        },
+        {
+          releaseDate: '2020-11-29',
+          releaseDecade: 2020,
+          songName: 'Techno Jazz Tool',
+          image: {
+            height: 640,
+            url: 'https://i.scdn.co/image/ab6761610000e5ebef86feb3e2b9c57897ddc453',
+            width: 640
+          },
+          link: 'spotify:track:4dGWqeULKD767yx9NIMcEv'
+        },
+        {
+          releaseDate: '1984-11-29',
+          releaseDecade: 1980,
+          songName: 'Techno Funk Tool',
+          image: {
+            height: 640,
+            url: 'https://i.scdn.co/image/ab6761610000e5ebef86feb3e2b9c57897ddc453',
+            width: 640
+          },
+          link: 'spotify:track:4dGWqeULKD767yx9NIMcEv'
+        },
+        {
+          releaseDate: '1993-11-29',
+          releaseDecade: 1990,
+          songName: 'Techno Soul Tool',
+          image: {
+            height: 640,
+            url: 'https://i.scdn.co/image/ab6761610000e5ebef86feb3e2b9c57897ddc453',
+            width: 640
+          },
+          link: 'spotify:track:4dGWqeULKD767yx9NIMcEv'
+        }
+      ]
+      )
     });
 
 
