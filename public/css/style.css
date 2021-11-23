@@ -139,6 +139,16 @@ a {
     font-weight: bolder;
 }
 
+#time-ranges-normal {
+    font-weight: bolder;
+}
+
+#time-ranges-active {
+    font-weight: bolder;
+    background-color: #1DB954;
+    color: white;
+}
+
 .favourite-header-text {
     font-size: 3em;
     white-space: nowrap;
