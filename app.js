@@ -62,11 +62,11 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
-    let topAlbum = await getMostListenedToAlbum(spotifyApi);
-    let songResult = await getTopTracks(spotifyApi);
-    let artistResult = await getTopArtists(spotifyApi);
-    let genresResult = await getTopGenres(spotifyApi);
-    let currentUser = await getCurrentUser(spotifyApi);
+    let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
+    let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
+    let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
+    let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
+    let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
     let topDecade = await getMostListenedToDecade(spotifyApi);
     let decadeListKeys = Object.keys(topDecade)
     res.render("index.ejs", {
