@@ -25,7 +25,6 @@ a {
     text-decoration: none;
 }
 
-/* NAVBAR SHITE */
 /* Style The Dropdown Button */
 .dropbtn {
     background-color: #4CAF50;
@@ -75,7 +74,6 @@ a {
     background-color: #3e8e41;
 }
 
-
 /* NAVBAR CSS STYLINGS */
 
 .navbar-container {
@@ -124,7 +122,7 @@ a {
     display: flex;
     height: auto;
     width: auto;
-    max-height: 4em;
+    max-height: 3.6em;
     align-items: center;
 }
 
@@ -140,10 +138,6 @@ a {
 .favourite-header-text {
     font-size: 3em;
     white-space: nowrap;
-}
-
-#username {
-    padding-left: 0;
 }
 
 /* DROPDOWN */
