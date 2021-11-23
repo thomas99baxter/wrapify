@@ -66,6 +66,7 @@ app.get('/view', async (req, res) => {
     let genresResult = await getTopGenres(spotifyApi);
     let currentUser = await getCurrentUser(spotifyApi);
     let topDecade = await getMostListenedToDecade(spotifyApi);
+    let decadeListKeys = Object.keys(topDecade)
     res.render("index.ejs", {
         // favourite song info
         topSongName: songResult[0].song_name,
@@ -92,5 +93,13 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
+        
+        // decade info
+        // releaseDate: topDecade['2000'].releaseDate,
+        // releaseDecade: topDecade.releaseDecade,
+        // decadeSongName: topDecade.songName,
+        // decadeSongImage: topDecade.image,
+        decadeListKeys : decadeListKeys,
+        topDecade: topDecade,
     })
 });

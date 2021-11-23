@@ -1,7 +1,38 @@
 <div id="decade-section" class="most-played-x-container">
   <h2>Your Favourites by the Decade:</h2>
-  <h4>Deadmau5</h4>
-  <h6>Ghosts 'n' stuff</h6>
-  <img class="most-played-images-square"
-       src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+  <% decadeListKeys.forEach((decade) =>  { %>
+    <button type="button" class="collapsible"> <%= decade %></button>
+    <div class="content">
+    <% for(let i = 0; i < topDecade[decade].length; i++) { %>
+      <% if(i > topDecade[decade].length) { %>
+        <% break; %>
+      <% } else if(i === 5) { %>
+        <% break; %>
+      <% } else {%>
+      <img src=<%= topDecade[decade][i].image.url %>>
+      <a href= <%= topDecade[decade][i].link %>>
+        <p> <%= topDecade[decade][i].songName %> </p>
+      </a>
+      <p><%= topDecade[decade][i].releaseDate.slice(0,4) %> </p>
+      <% } %>
+        <% }; %>
+      </div>
+  <% }); %>
 </div>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+      content.style.display = "none";
+      } else {
+      content.style.display = "block";
+      }
+  });
+  }
+</script>
