@@ -106,3 +106,8 @@ app.get('/view/medium-term', (req, res) => {
     TIME_RANGE = 'medium_term';
     res.redirect('/view')
 })
+
+app.get('/view/long-term', (req, res) => {
+    TIME_RANGE = 'long_term';
+    res.redirect('/view')
+})
