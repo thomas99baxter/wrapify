@@ -1,5 +1,7 @@
-<div id="genre-section" class="your-top-genres">
+<div id="genre-section" class="most-played-x-container">
   <h2 class= "favourite-header-text">Top genres</h2>
+
+
   <div class="most-played-artist-section-content">
     <ul class="most-played-genre-ul-tag">
       <% for(let i = 0; i < topTenGenres.length; i++) { %>
@@ -7,9 +9,4 @@
       <% } %>
     </ul>
   </div>
-  <!-- <div id="grid-container">
-    <% topTenGenres.forEach(genre => { %>   
-          <div class="grid-item"> <%= genre[0] %></div>
-    <% }) %>
-  </div> -->
 </div>
