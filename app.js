@@ -8,7 +8,6 @@ const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
 const { getCurrentUser } = require("./lib/getCurrentUser");
 
-
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
@@ -22,6 +21,8 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8080;
 }
+
+let TIME_RANGE = 'long_term';
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
@@ -60,13 +61,11 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
-
-    let topAlbum = await getMostListenedToAlbum(spotifyApi);
+    let topAlbum = await getMostListenedToAlbum(spotifyApi, "long_term");
     let songResult = await getTopTracks(spotifyApi, "long_term");
-    let artistResult = await getTopArtists(spotifyApi);
-    let genresResult = await getTopGenres(spotifyApi);
-    let currentUser = await getCurrentUser(spotifyApi);
-
+    let artistResult = await getTopArtists(spotifyApi, "long_term");
+    let genresResult = await getTopGenres(spotifyApi, "long_term");
+    let currentUser = await getCurrentUser(spotifyApi, "long_term");
 
     res.render("index.ejs", {
         // favourite song info
@@ -97,3 +96,15 @@ app.get('/view', async (req, res) => {
 
     })
 });
+
+app.get('/view/short-term', (req, res) => {
+    TIME_RANGE = 'short_term';
+
+    res.redirect('/view')
+})
+
+app.get('/view/medium-term', (req, res) => {
+    TIME_RANGE = 'short_term';
+
+    res.redirect('/view')
+})
