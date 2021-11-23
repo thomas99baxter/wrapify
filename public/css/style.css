@@ -67,10 +67,6 @@ a {
     white-space: nowrap;
 }
 
-#username {
-    padding-left: 0;
-}
-
 /* SITE-WIDE IMAGES */
 
 img {
@@ -83,8 +79,7 @@ img {
 #profile-image {
     border-style: solid;
     border-radius: 25em;
-    width: 4%;
-    height: 4%;
+    height: 25%;
     align-self: center;
 }
 
