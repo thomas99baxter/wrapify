@@ -79,6 +79,7 @@ app.get('/view', async (req, res) => {
 
     res.render("index.ejs", {
         // favourite song info
+        time_range: TIME_RANGE,
         timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
