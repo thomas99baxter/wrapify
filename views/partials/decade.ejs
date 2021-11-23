@@ -1,19 +1,21 @@
 <div id="decade-section" class="most-played-x-container">
-  <h2>Your Favourites by the Decade:</h2>
+  <h2 class= "favourite-header-text">Your Favourites by the Decade:</h2>
   <% decadeListKeys.forEach((decade) =>  { %>
-    <button type="button" class="collapsible"> <%= decade %></button>
-    <div class="content">
+    <button type="button" class="decade-section-collapsible"> <%= decade %></button>
+    <div class="each-decade-content">
     <% for(let i = 0; i < topDecade[decade].length; i++) { %>
       <% if(i > topDecade[decade].length) { %>
         <% break; %>
       <% } else if(i === 5) { %>
         <% break; %>
       <% } else {%>
-      <img src=<%= topDecade[decade][i].image.url %>>
-      <a href= <%= topDecade[decade][i].link %>>
-        <p> <%= topDecade[decade][i].songName %> </p>
-      </a>
-      <p><%= topDecade[decade][i].releaseDate.slice(0,4) %> </p>
+      <div class="decade-single-song-card">
+        <img class="decade-song-album-image" src=<%= topDecade[decade][i].image.url %>>
+        <a class='decade-song-link' href= <%= topDecade[decade][i].link %>>
+          <p class='decade-song-songname'> <%= topDecade[decade][i].songName %> </p>
+        </a>
+        <p class='decade-song-date'><%= topDecade[decade][i].releaseDate.slice(0,4) %> </p>
+      </div>
       <% } %>
         <% }; %>
       </div>
@@ -21,7 +23,7 @@
 </div>
 
 <script>
-  var coll = document.getElementsByClassName("collapsible");
+  var coll = document.getElementsByClassName("decade-section-collapsible");
   var i;
 
   for (i = 0; i < coll.length; i++) {

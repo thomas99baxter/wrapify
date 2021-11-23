@@ -402,7 +402,7 @@ img {
     scroll-margin-top: 3.6em;
 }
 
-.collapsible {
+.decade-section-collapsible {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -412,17 +412,36 @@ img {
     text-align: left;
     outline: none;
     font-size: 15px;
+    margin-top: 1em;
   }
   
   .active, .collapsible:hover {
     background-color: #ccc;
   }
   
-  .content {
+  .each-decade-content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
+  }
+
+  .decade-single-song-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100*;
+    justify-content: space-between;
+    height: 6em;
+    margin-left: 3em;
+    flex-wrap: wrap;
+    margin-right: 3em;
+    font-size: 1.3em;
+  }
+
+  .decade-song-album-image {
+    height: 90%;
+    width: auto;
   }
 
 /* LANDING PAGE STYLING */
