@@ -8,6 +8,7 @@ const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
 const { getCurrentUser } = require("./lib/getCurrentUser");
 
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
@@ -59,11 +60,13 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
+
     let topAlbum = await getMostListenedToAlbum(spotifyApi);
     let songResult = await getTopTracks(spotifyApi, "long_term");
     let artistResult = await getTopArtists(spotifyApi);
     let genresResult = await getTopGenres(spotifyApi);
     let currentUser = await getCurrentUser(spotifyApi);
+
 
     res.render("index.ejs", {
         // favourite song info
@@ -91,5 +94,6 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
+
     })
 });
