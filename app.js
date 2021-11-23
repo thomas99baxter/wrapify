@@ -69,8 +69,21 @@ app.get('/view', async (req, res) => {
     let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
     let topDecade = await getMostListenedToDecade(spotifyApi);
     let decadeListKeys = Object.keys(topDecade)
+
+    let timeRangeContent = '';
+
+    if (TIME_RANGE === 'long_term') {
+        timeRangeContent = "of all time";
+    } else if (TIME_RANGE === 'medium_term'){
+        timeRangeContent = "of the last 6 months";
+    } else {
+        timeRangeContent = "of the last 4 weeks";
+    };
+
     res.render("index.ejs", {
         // favourite song info
+        time_range: TIME_RANGE,
+        timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
         topSongs: songResult,

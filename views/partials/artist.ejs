@@ -6,7 +6,7 @@
 
         <div class="most-played-artist-list">
             <ul class="most-played-artist-list-tag">
-              <h3>Your top 5 artists of all time!</h3>
+              <h3>Your top 5 artists <%= timeRangeContent %>!</h3>
                 <% for(let i = 0; i < topArtists.length; i++) { %>
                     <li class="most-played-artist-list-inside-artist"><%= topArtists[i].artist_name %></li>
                 <% } %>
