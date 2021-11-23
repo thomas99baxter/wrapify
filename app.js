@@ -93,6 +93,7 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
+
     })
 });
 
