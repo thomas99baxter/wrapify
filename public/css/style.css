@@ -5,6 +5,10 @@ body {
     margin-top: 4em;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +25,6 @@ a {
     text-decoration: none;
 }
 
-/* NAVBAR SHITE */
 /* Style The Dropdown Button */
 .dropbtn {
     background-color: #4CAF50;
@@ -71,7 +74,6 @@ a {
     background-color: #3e8e41;
 }
 
-
 /* NAVBAR CSS STYLINGS */
 
 .navbar-container {
@@ -112,11 +114,15 @@ a {
     margin-top: auto;
 }
 
+.nav-link-left{
+  scroll-margin-top: 3.6em;
+}
+
 .nav-link-right {
     display: flex;
     height: auto;
     width: auto;
-    max-height: 4em;
+    max-height: 3.6em;
     align-items: center;
 }
 
@@ -132,6 +138,54 @@ a {
 .favourite-header-text {
     font-size: 3em;
     white-space: nowrap;
+}
+
+/* DROPDOWN */
+
+.dropbtn {
+  color: #1DB954;
+  background-color: whitesmoke;
+  padding: 16px;
+  font-size: 1em;
+  border: none;
+  height: 3.6em;
+  width: auto;
+  max-height: 4em;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 3em;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #1DB954;
+  color: whitesmoke;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #1DB954;
+  color: whitesmoke;
 }
 
 /* SITE-WIDE IMAGES */
@@ -208,6 +262,7 @@ img {
 
 #song-section {
     background-color: #FFFFFF;
+    scroll-margin-top: 3.6em;
 }
 
 .most-played-song-name {
@@ -249,6 +304,7 @@ img {
 
 #artist-section {
     background-color: #191414;
+    scroll-margin-top: 3.6em;
 }
 
 .most-played-artist-name {
@@ -286,6 +342,7 @@ img {
 
 #album-section {
     background-color: #1DB954;
+    scroll-margin-top: 3.6em;
 }
 
 .favourite-header-text-album {
@@ -312,6 +369,7 @@ img {
 
 #genre-section {
     background-color: #191414;
+    scroll-margin-top: 3.6em;
 }
 
 .most-played-genre-ul-tag {
@@ -336,6 +394,7 @@ img {
 
 #decade-section {
     background-color: #FFFFFF;
+    scroll-margin-top: 3.6em;
 }
 
 /* LANDING PAGE STYLING */
