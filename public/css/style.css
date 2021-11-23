@@ -27,7 +27,10 @@ a {
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 3.6em;
     margin: 0;
+    object-fit: contain;
+    align-items: center;
     text-align: center;
     position: fixed;
     background-color: whitesmoke;
@@ -40,8 +43,9 @@ a {
     white-space: nowrap;
 }
 
-.nav-link-left {
-    margin-right: 1em;
+.navbar-container a:hover {
+    background-color: #1DB954;
+    color: whitesmoke;
 }
 
 .navbar-brand {
@@ -58,7 +62,11 @@ a {
 }
 
 .nav-link-right {
-    margin-left: auto;
+    display: flex;
+    height: auto;
+    width: auto;
+    max-height: 4em;
+    align-items: center;
 }
 
 .flex-container {
@@ -87,9 +95,9 @@ img {
 #profile-image {
     border-style: solid;
     border-radius: 25em;
-    height: 25%;
-    align-self: center;
     margin: 0;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .most-played-images-square {
