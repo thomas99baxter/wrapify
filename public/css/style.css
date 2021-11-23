@@ -21,6 +21,57 @@ a {
     text-decoration: none;
 }
 
+/* NAVBAR SHITE */
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
 /* NAVBAR CSS STYLINGS */
 
 .navbar-container {
@@ -49,16 +100,16 @@ a {
 }
 
 .navbar-brand {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 
 .navbar-name {
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
 }
 
 .nav-link-right {
@@ -110,12 +161,12 @@ img {
 }
 
 .most-played-images-circle {
-  width: 50vh;
-  max-height: 60vh;
-  min-height: 30vh;
-  border-radius: 50%;
-  border-style: solid;
-  background-color: #1DB954;
+    width: 50vh;
+    max-height: 60vh;
+    min-height: 30vh;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: #1DB954;
 }
 
 #blurred {
@@ -167,12 +218,12 @@ img {
 }
 
 .most-played-song-list {
-  min-width: 45%;
-  display: flex;
-  justify-content: center;
-  max-width: 100vh;
-  max-height: 100vh;
-  margin-top: 1em;
+    min-width: 45%;
+    display: flex;
+    justify-content: center;
+    max-width: 100vh;
+    max-height: 100vh;
+    margin-top: 1em;
 }
 
 .most-played-song-list-tag {
@@ -221,10 +272,10 @@ img {
 }
 
 .most-played-artist-list-inside-artist {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 2%;
-  border-radius: 10px;
-  margin: 4%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2%;
+    border-radius: 10px;
+    margin: 4%;
 }
 
 .most-played-artist-name-and-cover {
@@ -264,21 +315,21 @@ img {
 }
 
 .most-played-genre-ul-tag {
-  column-count: 2;
-  column-gap: 5em;
-  color: #1DB954;
-  list-style-type: decimal;
-  font-size: 2em;
-  margin-top: 1em;
-  margin-left: 1em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  list-style-position: inside;
-  border-radius: 25px;
-  padding: 2.5%
+    column-count: 2;
+    column-gap: 5em;
+    color: #1DB954;
+    list-style-type: decimal;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-left: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    list-style-position: inside;
+    border-radius: 25px;
+    padding: 2.5%
 }
 
 .most-played-genre-li-tag {
-  color: #1DB954;
+    color: #1DB954;
 }
 
 /* DECADE SECTION */
@@ -338,13 +389,14 @@ img {
 }
 
 .wrapify-logo {
-  height: auto;
-  width: auto;
-  max-height: 4em;
-  max-width: 4em;
+    height: auto;
+    width: auto;
+    max-height: 4em;
+    max-width: 4em;
 }
+
 .tagline-landing-page {
-  font-size: 1em;
+    font-size: 1em;
 }
 
 /*@media (max-width: 800px) {*/

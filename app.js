@@ -60,7 +60,7 @@ app.get('/test/', (req, res) => {
 
 app.get('/view', async (req, res) => {
     let topAlbum = await getMostListenedToAlbum(spotifyApi);
-    let songResult = await getTopTracks(spotifyApi);
+    let songResult = await getTopTracks(spotifyApi, "long_term");
     let artistResult = await getTopArtists(spotifyApi);
     let genresResult = await getTopGenres(spotifyApi);
     let currentUser = await getCurrentUser(spotifyApi);
