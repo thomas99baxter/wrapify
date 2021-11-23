@@ -45,8 +45,16 @@ a {
 }
 
 .navbar-brand {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.navbar-name {
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
 }
 
 .nav-link-right {
@@ -84,19 +92,21 @@ img {
 }
 
 .most-played-images-square {
-    width: 60vh;
-    height: 60vh;
+    width: 50vh;
+    max-height: 60vh;
+    min-height: 30vh;
     border-radius: 5px;
     border-style: solid;
     background-color: #1DB954;
 }
 
 .most-played-images-circle {
-    width: 60vh;
-    height: 60vh;
-    border-radius: 50%;
-    border-style: solid;
-    background-color: #1DB954;
+  width: 50vh;
+  max-height: 60vh;
+  min-height: 30vh;
+  border-radius: 50%;
+  border-style: solid;
+  background-color: #1DB954;
 }
 
 #blurred {
@@ -117,17 +127,17 @@ img {
 /* ALL SECTIONS */
 
 .most-played-x-container {
-    height: 100vh;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
     padding: 1% 2%;
 }
 
 .most-played-x-section-content {
     display: flex;
     align-items: center;
-    padding: 4%;
-    gap: 12.5%;
-    margin: 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2em;
 }
 
 .most-played-x-name-and-cover {
@@ -148,7 +158,12 @@ img {
 }
 
 .most-played-song-list {
-    width: 50%;
+  min-width: 45%;
+  display: flex;
+  justify-content: center;
+  max-width: 100vh;
+  max-height: 100vh;
+  margin-top: 1em;
 }
 
 .most-played-song-list-tag {
@@ -159,7 +174,7 @@ img {
     text-align: center;
     list-style-position: inside;
     border-radius: 25px;
-    padding: 2.5%
+    padding: 2.5%;
 }
 
 .most-played-song-list-inside-songs {
@@ -193,10 +208,14 @@ img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #292929;
     border-radius: 25px;
+    margin-bottom: 1em;
 }
 
-.most-played-artist-list {
-    width: 50%;
+.most-played-artist-list-inside-artist {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2%;
+  border-radius: 10px;
+  margin: 4%;
 }
 
 .most-played-artist-name-and-cover {
@@ -221,6 +240,7 @@ img {
     left: 0;
     width: 100%;
     padding-top: 3.5%;
+    margin-bottom: 1.5em;
 }
 
 .spotify-embedded-album-container {
@@ -232,6 +252,24 @@ img {
 
 #genre-section {
     background-color: #191414;
+}
+
+.most-played-genre-ul-tag {
+  column-count: 2;
+  column-gap: 5em;
+  color: #1DB954;
+  list-style-type: decimal;
+  font-size: 2em;
+  margin-top: 1em;
+  margin-left: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  list-style-position: inside;
+  border-radius: 25px;
+  padding: 2.5%
+}
+
+.most-played-genre-li-tag {
+  color: #1DB954;
 }
 
 /* DECADE SECTION */
@@ -290,24 +328,12 @@ img {
     text-align: center;
 }
 
-.most-played-genre-ul-tag {
-    column-count: 2;
-    column-gap: 5em;
-    color: #1DB954;
-    list-style-type: decimal;
-    font-size: 2em;
-    margin-top: 1em;
-    margin-left: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    list-style-position: inside;
-    border-radius: 25px;
-    padding: 2.5%
+.wrapify-logo {
+  height: auto;
+  width: auto;
+  max-height: 4em;
+  max-width: 4em;
 }
-
-.most-played-genre-li-tag {
-    color: #1DB954;
-}
-
 .tagline-landing-page {
   font-size: 1em;
 }
