@@ -2,12 +2,12 @@ const express = require("express");
 const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
-const { getMostListenedToAlbum } = require('./lib/getAlbums');
-const { getTopArtists } = require('./lib/getArtists');
-const { getTopTracks } = require('./lib/getSongs');
-const { getTopGenres } = require('./lib/getGenres');
-const { getCurrentUser } = require("./lib/getCurrentUser");
-const { getMostListenedToDecade } = require("./lib/getDecades");
+const {getMostListenedToAlbum} = require('./lib/getAlbums');
+const {getTopArtists} = require('./lib/getArtists');
+const {getTopTracks} = require('./lib/getSongs');
+const {getTopGenres} = require('./lib/getGenres');
+const {getCurrentUser} = require("./lib/getCurrentUser");
+const {getMostListenedToDecade} = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -77,11 +77,12 @@ app.get('/view', async (req, res) => {
 
     if (TIME_RANGE === 'long_term') {
         timeRangeContent = "of all time";
-    } else if (TIME_RANGE === 'medium_term'){
+    } else if (TIME_RANGE === 'medium_term') {
         timeRangeContent = "of the last 6 months";
     } else {
         timeRangeContent = "of the last 4 weeks";
-    };
+    }
+
 
     res.render("index.ejs", {
         time_range: TIME_RANGE,
@@ -90,6 +91,7 @@ app.get('/view', async (req, res) => {
         timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
+        artist_name: songResult[0].artist_name,
         topSongs: songResult,
 
         // favourite artist info
@@ -112,9 +114,9 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
-        
+
         // decade info
-        decadeListKeys : Object.keys(topTracksByDecade),
+        decadeListKeys: Object.keys(topTracksByDecade),
         topTracksByDecade: topTracksByDecade,
     })
 });
