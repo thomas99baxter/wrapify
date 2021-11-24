@@ -67,8 +67,7 @@ app.get('/view', async (req, res) => {
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
     let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
     let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
-    let topDecade = await getMostListenedToDecade(spotifyApi);
-    let decadeListKeys = Object.keys(topDecade)
+    let topTracksByDecade = await getMostListenedToDecade(spotifyApi);
 
     let timeRangeContent = '';
 
@@ -110,12 +109,8 @@ app.get('/view', async (req, res) => {
         profile_image: currentUser.profile_image,
         
         // decade info
-        // releaseDate: topDecade['2000'].releaseDate,
-        // releaseDecade: topDecade.releaseDecade,
-        // decadeSongName: topDecade.songName,
-        // decadeSongImage: topDecade.image,
-        decadeListKeys : decadeListKeys,
-        topDecade: topDecade,
+        decadeListKeys : Object.keys(topTracksByDecade),
+        topTracksByDecade: topTracksByDecade,
     })
 });
 

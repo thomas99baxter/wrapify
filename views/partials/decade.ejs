@@ -3,18 +3,18 @@
   <% decadeListKeys.forEach((decade) =>  { %>
     <button type="button" class="decade-section-collapsible"> <%= decade %></button>
     <div class="each-decade-content">
-    <% for(let i = 0; i < topDecade[decade].length; i++) { %>
-      <% if(i > topDecade[decade].length) { %>
+    <% for(let i = 0; i < topTracksByDecade[decade].length; i++) { %>
+      <% if(i > topTracksByDecade[decade].length) { %>
         <% break; %>
       <% } else if(i === 5) { %>
         <% break; %>
       <% } else {%>
       <div class="decade-single-song-card">
-        <img class="decade-song-album-image" src=<%= topDecade[decade][i].image.url %>>
-        <a class='decade-song-link' href= <%= topDecade[decade][i].link %>>
-          <p class='decade-song-songname'> <%= topDecade[decade][i].songName %> </p>
+        <img class="decade-song-album-image" src=<%= topTracksByDecade[decade][i].image.url %>>
+        <a class='decade-song-link' href= <%= topTracksByDecade[decade][i].link %>>
+          <p class='decade-song-songname'> <%= topTracksByDecade[decade][i].songName %> </p>
         </a>
-        <p class='decade-song-date'><%= topDecade[decade][i].releaseDate.slice(0,4) %> </p>
+        <p class='decade-song-date'><%= topTracksByDecade[decade][i].releaseDate.slice(0,4) %> </p>
       </div>
       <% } %>
         <% }; %>
