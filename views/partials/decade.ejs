@@ -1,7 +1,7 @@
 <div id="decade-section" class="most-played-x-container">
   <h2 class= "favourite-header-text">Your Favourites by the Decade:</h2>
   <% decadeListKeys.forEach((decade) =>  { %>
-    <button type="button" class="decade-section-collapsible"> <%= decade %></button>
+    <button type="button" class="decade-section-collapsible"> <%= decade %>s</button>
     <div class="each-decade-content">
     <% for(let i = 0; i < topTracksByDecade[decade].length; i++) { %>
       <% if(i > topTracksByDecade[decade].length) { %>
