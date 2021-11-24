@@ -151,7 +151,7 @@ a {
 
 .favourite-header-text {
     font-size: 3em;
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 /* DROPDOWN */
@@ -363,7 +363,7 @@ img {
 .favourite-header-text-album {
     color: white;
     font-size: 3em;
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 .most-played-album-name-amount-artist-name {
