@@ -387,6 +387,7 @@ img {
 }
 
 .most-played-genre-ul-tag {
+    background-color: #292929;
     column-count: 2;
     column-gap: 5em;
     color: #1DB954;
@@ -402,6 +403,10 @@ img {
 
 .most-played-genre-li-tag {
     color: #1DB954;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 0.2em;
 }
 
 
