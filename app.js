@@ -1,6 +1,10 @@
 const express = require("express");
 const SpotifyWebApi = require('spotify-web-api-node');
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
+
 require('dotenv').config()
+
 const app = express();
 const {getMostListenedToAlbum} = require('./lib/getAlbums');
 const {getTopArtists} = require('./lib/getArtists');
@@ -10,8 +14,18 @@ const {getCurrentUser} = require("./lib/getCurrentUser");
 const {getMostListenedToDecade} = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+const oneDay = 1000 * 60 * 60 * 24;
 
+app.use(sessions({
+    secret: "thisismysecret",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+app.use(cookieParser());
 
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -19,6 +33,11 @@ if (port == null || port == "") {
 }
 
 let TIME_RANGE = 'long_term';
+
+const userApiInstances = {};
+const populateApiInstances = (username, instance) => {
+    userApiInstances[username] = instance;
+}
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
@@ -29,6 +48,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+    app.set('spotifyApi', undefined)
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
     let spotifyApi = new SpotifyWebApi({
@@ -43,10 +63,10 @@ app.get('/login', (req, res) => {
     res.redirect(authorizeURL)
 })
 
-app.get('/test/', (req, res) => {
+app.get('/test/',  (req, res) => {
     let spotifyApi = app.get('spotifyApi')
     spotifyApi.authorizationCodeGrant(req.query.code).then(
-        function (data) {
+         async function (data) {
             console.log('The token expires in ' + data.body['expires_in']);
             console.log('The access token is ' + data.body['access_token']);
             console.log('The refresh token is ' + data.body['refresh_token']);
@@ -54,7 +74,10 @@ app.get('/test/', (req, res) => {
             // Set the access token on the API object to use it in later calls
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
-            app.set('spotifyApi', spotifyApi);
+
+            req.session.userId = (await getCurrentUser(spotifyApi)).user_id;
+            
+            populateApiInstances(req.session.userId, spotifyApi);
             res.redirect('/view')
         },
         function (err) {
@@ -65,7 +88,15 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
-    let spotifyApi = app.get('spotifyApi')
+    let spotifyApi = new SpotifyWebApi({
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        redirectUri: `${process.env.REDIRECT_URI}`
+    });
+
+    spotifyApi.setAccessToken(userApiInstances[req.session.userId]['_credentials'].accessToken);
+    spotifyApi.setRefreshToken(userApiInstances[req.session.userId]['_credentials'].refreshToken);
+
     let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
     let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
