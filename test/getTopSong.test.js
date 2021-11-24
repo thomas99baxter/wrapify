@@ -53,7 +53,8 @@ describe('GetTopSong', () => {
                     "href": "myHref",
                     "width": 100,
                 },
-                "song_name": "Going Bad (feat. Drake)"
+                "song_name": "Going Bad (feat. Drake)",
+                "artist_name": "Meek Mill"
             })
     });
 
