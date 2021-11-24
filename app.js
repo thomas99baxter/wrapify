@@ -67,7 +67,7 @@ app.get('/view', async (req, res) => {
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
     let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
     let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
-    let topTracksByDecade = await getMostListenedToDecade(spotifyApi);
+    let topTracksByDecade = await getMostListenedToDecade(spotifyApi, TIME_RANGE);
 
     let timeRangeContent = '';
 
@@ -80,8 +80,9 @@ app.get('/view', async (req, res) => {
     };
 
     res.render("index.ejs", {
-        // favourite song info
         time_range: TIME_RANGE,
+
+        // favourite song info
         timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
