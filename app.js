@@ -12,11 +12,6 @@ const {getMostListenedToDecade} = require("./lib/getDecades");
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
-let spotifyApi = new SpotifyWebApi({
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    redirectUri: `${process.env.REDIRECT_URI}`
-});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -30,19 +25,26 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-
     res.render("welcome.ejs")
 });
 
 app.get('/login', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
-    var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+    let spotifyApi = new SpotifyWebApi({
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        redirectUri: `${process.env.REDIRECT_URI}`
+    });
 
+    var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+    
+    app.set('spotifyApi', spotifyApi);
     res.redirect(authorizeURL)
 })
 
 app.get('/test/', (req, res) => {
+    let spotifyApi = app.get('spotifyApi')
     spotifyApi.authorizationCodeGrant(req.query.code).then(
         function (data) {
             console.log('The token expires in ' + data.body['expires_in']);
@@ -52,6 +54,7 @@ app.get('/test/', (req, res) => {
             // Set the access token on the API object to use it in later calls
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
+            app.set('spotifyApi', spotifyApi);
             res.redirect('/view')
         },
         function (err) {
@@ -62,6 +65,7 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
+    let spotifyApi = app.get('spotifyApi')
     let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
     let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
