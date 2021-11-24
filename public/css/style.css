@@ -102,24 +102,6 @@ a {
 }
 
 .navbar-brand {
-<<<<<<< HEAD
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-}
-
-.navbar-name {
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-}
-
-.nav-link-left{
-  scroll-margin-top: 3.6em;
-}
-
-=======
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -136,16 +118,11 @@ a {
   scroll-margin-top: 3.6em;
 }
 
->>>>>>> develop
 .nav-link-right {
     display: flex;
     height: auto;
     width: auto;
-<<<<<<< HEAD
-    max-height: 4em;
-=======
     max-height: 3.6em;
->>>>>>> develop
     align-items: center;
 }
 
