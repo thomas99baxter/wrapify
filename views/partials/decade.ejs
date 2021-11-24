@@ -1,7 +1,40 @@
 <div id="decade-section" class="most-played-x-container">
-  <h2>Your Favourites by the Decade:</h2>
-  <h4>Deadmau5</h4>
-  <h6>Ghosts 'n' stuff</h6>
-  <img class="most-played-images-square"
-       src="https://upload.wikimedia.org/wikipedia/en/d/d2/Deadmau5_and_Rob_Swire_-_Ghosts_N_Stuff_cover_art.jpg">
+  <h2 class= "favourite-header-text">Your Favourites by the Decade:</h2>
+  <% decadeListKeys.forEach((decade) =>  { %>
+    <button type="button" class="decade-section-collapsible"> <%= decade %></button>
+    <div class="each-decade-content">
+    <% for(let i = 0; i < topTracksByDecade[decade].length; i++) { %>
+      <% if(i > topTracksByDecade[decade].length) { %>
+        <% break; %>
+      <% } else if(i === 5) { %>
+        <% break; %>
+      <% } else {%>
+      <div class="decade-single-song-card">
+        <img class="decade-song-album-image" src=<%= topTracksByDecade[decade][i].image.url %>>
+        <a class='decade-song-link' href= <%= topTracksByDecade[decade][i].link %>>
+          <p class='decade-song-songname'> <%= topTracksByDecade[decade][i].songName %> </p>
+        </a>
+        <p class='decade-song-date'><%= topTracksByDecade[decade][i].releaseDate.slice(0,4) %> </p>
+      </div>
+      <% } %>
+        <% }; %>
+      </div>
+  <% }); %>
 </div>
+
+<script>
+  var coll = document.getElementsByClassName("decade-section-collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+      content.style.display = "none";
+      } else {
+      content.style.display = "block";
+      }
+  });
+  }
+</script>

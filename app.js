@@ -7,7 +7,7 @@ const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
 const { getCurrentUser } = require("./lib/getCurrentUser");
-
+const { getMostListenedToDecade } = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -22,6 +22,8 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8080;
 }
+
+let TIME_RANGE = 'long_term';
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
@@ -60,16 +62,27 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
+    let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
+    let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
+    let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
+    let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
+    let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
+    let topTracksByDecade = await getMostListenedToDecade(spotifyApi);
 
-    let topAlbum = await getMostListenedToAlbum(spotifyApi);
-    let songResult = await getTopTracks(spotifyApi);
-    let artistResult = await getTopArtists(spotifyApi);
-    let genresResult = await getTopGenres(spotifyApi);
-    let currentUser = await getCurrentUser(spotifyApi);
+    let timeRangeContent = '';
 
+    if (TIME_RANGE === 'long_term') {
+        timeRangeContent = "of all time";
+    } else if (TIME_RANGE === 'medium_term'){
+        timeRangeContent = "of the last 6 months";
+    } else {
+        timeRangeContent = "of the last 4 weeks";
+    };
 
     res.render("index.ejs", {
         // favourite song info
+        time_range: TIME_RANGE,
+        timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
         topSongs: songResult,
@@ -94,6 +107,24 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
-
+        
+        // decade info
+        decadeListKeys : Object.keys(topTracksByDecade),
+        topTracksByDecade: topTracksByDecade,
     })
 });
+
+app.get('/view/short-term', (req, res) => {
+    TIME_RANGE = 'short_term';
+    res.redirect('/view')
+})
+
+app.get('/view/medium-term', (req, res) => {
+    TIME_RANGE = 'medium_term';
+    res.redirect('/view')
+})
+
+app.get('/view/long-term', (req, res) => {
+    TIME_RANGE = 'long_term';
+    res.redirect('/view')
+})

@@ -1,6 +1,6 @@
 <div id="song-section" class="most-played-x-container">
 
-    <h1 class="favourite-header-text">Your most played songs are:</h1>
+    <h1 class="favourite-header-text">Your most played songs <%= timeRangeContent %> are:</h1>
 
     <div class="most-played-x-section-content">
 
@@ -12,7 +12,7 @@
 
         <div class="most-played-song-list">
             <ul class="most-played-song-list-tag">
-                <h3>Your top 5 songs of all time!</h3>
+                <h3>Your top 5 songs <%= timeRangeContent %> !</h3>
                 <% for(let i = 0; i < topSongs.length; i++) { %>
                     <li class="most-played-song-list-inside-songs"><%= topSongs[i].song_name %></li>
                 <% } %>
