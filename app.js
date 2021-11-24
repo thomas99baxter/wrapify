@@ -7,6 +7,7 @@ const { getTopArtists } = require('./lib/getArtists');
 const { getTopTracks } = require('./lib/getSongs');
 const { getTopGenres } = require('./lib/getGenres');
 const { getCurrentUser } = require("./lib/getCurrentUser");
+const { getMostListenedToDecade } = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -66,6 +67,8 @@ app.get('/view', async (req, res) => {
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
     let genresResult = await getTopGenres(spotifyApi, TIME_RANGE);
     let currentUser = await getCurrentUser(spotifyApi, TIME_RANGE);
+    let topDecade = await getMostListenedToDecade(spotifyApi);
+    let decadeListKeys = Object.keys(topDecade)
 
     let timeRangeContent = '';
 
@@ -105,7 +108,14 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
-
+        
+        // decade info
+        // releaseDate: topDecade['2000'].releaseDate,
+        // releaseDecade: topDecade.releaseDecade,
+        // decadeSongName: topDecade.songName,
+        // decadeSongImage: topDecade.image,
+        decadeListKeys : decadeListKeys,
+        topDecade: topDecade,
     })
 });
 
