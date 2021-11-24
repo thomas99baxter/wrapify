@@ -15,23 +15,29 @@
         <a class="navbar-name" href="/">WRAPIFY</a>
     </div>
 
-    <% if(time_range === 'short_term') { %>
-    <a class="nav-link-right" id="time-ranges-active" href=/view/short-term>Last 4 Weeks</a>
-    <% } else { %>
-    <a class="nav-link-right" id="time-ranges-normal" href=/view/short-term>Last 4 Weeks</a>
-    <% } %>
+    <div class="dropdown">
+        <button class="dropbtn">Filter Time Range:</button>
+        <div class="dropdown-content">
+            <% if(time_range === 'short_term') { %>
+                <a class="nav-link-right" id="time-ranges-active" href=/view/short-term>Last 4 Weeks</a>
+            <% } else { %>
+                <a class="nav-link-right" id="time-ranges-normal" href=/view/short-term>Last 4 Weeks</a>
+            <% } %>
 
-    <% if(time_range === 'medium_term') { %>
-    <a class="nav-link-right" id="time-ranges-active" href=/view/medium-term>Last 6 Months</a>
-    <% } else { %>
-    <a class="nav-link-right" id="time-ranges-normal" href=/view/medium-term>Last 6 Months</a>
-    <% } %>
+            <% if(time_range === 'medium_term') { %>
+                <a class="nav-link-right" id="time-ranges-active" href=/view/medium-term>Last 6 Months</a>
+            <% } else { %>
+                <a class="nav-link-right" id="time-ranges-normal" href=/view/medium-term>Last 6 Months</a>
+            <% } %>
 
-    <% if(time_range === 'long_term') { %>
-    <a class="nav-link-right" id="time-ranges-active" href=/view/long-term>All Time</a>
-    <% } else { %>
-    <a class="nav-link-right" id="time-ranges-normal" href=/view/long-term>All Time</a>
-    <% } %>
+            <% if(time_range === 'long_term') { %>
+                <a class="nav-link-right" id="time-ranges-active" href=/view/long-term>All Time</a>
+            <% } else { %>
+                <a class="nav-link-right" id="time-ranges-normal" href=/view/long-term>All Time</a>
+            <% } %>
+        </div>
+    </div>
+
 
     <a class="nav-link-right" href=https://open.spotify.com/user/<%= user_id %>>
         <img id="profile-image" src=<%= profile_image %>>
