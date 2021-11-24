@@ -2,7 +2,9 @@ const topSongMockResponse = [
     {
       album: {
         album_type: 'ALBUM',
-        artists: [Array],
+        artists: [{
+          name: 'Meek Mill',
+        }],
         available_markets: [Array],
         external_urls: [Object],
         href: 'https://api.spotify.com/v1/albums/6UYZEYjpN1DYRW0kqFy9ZE',
