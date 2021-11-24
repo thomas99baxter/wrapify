@@ -2,7 +2,6 @@ body {
     font-family: Circular, Helvetica, Arial, sans-serif;
     font-size: large;
     color: #1DB954;
-    margin-top: 4em;
 }
 
 html{
@@ -278,6 +277,7 @@ img {
 #song-section {
     background-color: #FFFFFF;
     scroll-margin-top: 3.6em;
+    margin-top: 4em;
 }
 
 .most-played-song-name {
@@ -458,8 +458,11 @@ img {
 /* LANDING PAGE STYLING */
 
 .landing-page-background-image{
-    background-image: url('https://images.pexels.com/photos/3947374/pexels-photo-3947374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    height: 100vh;
+    background-image: url('https://media.istockphoto.com/photos/beautiful-sunset-city-bokeh-picture-id859255062?k=20&m=859255062&s=612x612&w=0&h=ft7q1qbft1lvjL3fR5A0hXxt9LpqzhwgDjkvcuwXOqU=');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .welcome-page-outer-div {
@@ -470,7 +473,7 @@ img {
     align-self: center;
 }
 
-.welcome-page-inner-div{
+.welcome-page-inner-div-top{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -478,7 +481,6 @@ img {
 
 .welcome-page-wrapify-logo{
     height: 15vw;
-    /* margin-bottom: 0.5em; */
 }
 
 .title-landing-page {
@@ -486,13 +488,36 @@ img {
     font-weight: bolder;
     text-decoration: none;
     white-space: nowrap;
-    /* margin-bottom: 0.5em; */
     color: black;
+    margin-bottom: 0.2em;
+}
+
+.welcome-page-inner-div-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #191414;
+    border-style: solid;
+    border-width: 1px;
+    width: 80vw;
+    height: fit-content;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.welcome-page-inner-div-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
 }
 
 .tagline-landing-page {
     font-size: 5vw;
     margin-bottom: 1em;
+    opacity: 100%;
 }
 
 .login-button-landing-page {
@@ -505,10 +530,11 @@ img {
     background-color: #1DB954;
     border-style: none;
     border-radius: 25em;
-    width: 20vw;
-    height: 5vw;
+    width: 20em;
+    height: 5em;
     color: #191414;
     font-family: 'Raleway', sans-serif;
+    font-size: 1em;
 }
 
 .grid-container {
