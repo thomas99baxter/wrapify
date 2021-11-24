@@ -2,25 +2,20 @@ const express = require("express");
 const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config()
 const app = express();
-const { getMostListenedToAlbum } = require('./lib/getAlbums');
-const { getTopArtists } = require('./lib/getArtists');
-const { getTopTracks } = require('./lib/getSongs');
-const { getTopGenres } = require('./lib/getGenres');
-const { getCurrentUser } = require("./lib/getCurrentUser");
-const { getMostListenedToDecade } = require("./lib/getDecades");
+const {getMostListenedToAlbum} = require('./lib/getAlbums');
+const {getTopArtists} = require('./lib/getArtists');
+const {getTopTracks} = require('./lib/getSongs');
+const {getTopGenres} = require('./lib/getGenres');
+const {getCurrentUser} = require("./lib/getCurrentUser");
+const {getMostListenedToDecade} = require("./lib/getDecades");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 
-let spotifyApi = new SpotifyWebApi({
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    redirectUri: `${process.env.REDIRECT_URI}`
-});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8080;
+    port = 8080;
 }
 
 let TIME_RANGE = 'long_term';
@@ -30,19 +25,26 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-
     res.render("welcome.ejs")
 });
 
 app.get('/login', (req, res) => {
     var scopes = ['user-read-private', 'user-read-email', 'user-read-playback-position', 'user-read-recently-played', 'user-top-read'];
     var state = 'some-state-of-my-choice';
-    var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+    let spotifyApi = new SpotifyWebApi({
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        redirectUri: `${process.env.REDIRECT_URI}`
+    });
 
+    var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+    
+    app.set('spotifyApi', spotifyApi);
     res.redirect(authorizeURL)
 })
 
 app.get('/test/', (req, res) => {
+    let spotifyApi = app.get('spotifyApi')
     spotifyApi.authorizationCodeGrant(req.query.code).then(
         function (data) {
             console.log('The token expires in ' + data.body['expires_in']);
@@ -52,6 +54,7 @@ app.get('/test/', (req, res) => {
             // Set the access token on the API object to use it in later calls
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
+            app.set('spotifyApi', spotifyApi);
             res.redirect('/view')
         },
         function (err) {
@@ -62,6 +65,7 @@ app.get('/test/', (req, res) => {
 });
 
 app.get('/view', async (req, res) => {
+    let spotifyApi = app.get('spotifyApi')
     let topAlbum = await getMostListenedToAlbum(spotifyApi, TIME_RANGE);
     let songResult = await getTopTracks(spotifyApi, TIME_RANGE);
     let artistResult = await getTopArtists(spotifyApi, TIME_RANGE);
@@ -73,11 +77,12 @@ app.get('/view', async (req, res) => {
 
     if (TIME_RANGE === 'long_term') {
         timeRangeContent = "of all time";
-    } else if (TIME_RANGE === 'medium_term'){
+    } else if (TIME_RANGE === 'medium_term') {
         timeRangeContent = "of the last 6 months";
     } else {
         timeRangeContent = "of the last 4 weeks";
-    };
+    }
+
 
     res.render("index.ejs", {
         time_range: TIME_RANGE,
@@ -86,6 +91,7 @@ app.get('/view', async (req, res) => {
         timeRangeContent: timeRangeContent,
         topSongName: songResult[0].song_name,
         topSongCover: songResult[0].song_cover,
+        artist_name: songResult[0].artist_name,
         topSongs: songResult,
 
         // favourite artist info
@@ -108,9 +114,9 @@ app.get('/view', async (req, res) => {
         display_name: currentUser.display_name,
         user_id: currentUser.user_id,
         profile_image: currentUser.profile_image,
-        
+
         // decade info
-        decadeListKeys : Object.keys(topTracksByDecade),
+        decadeListKeys: Object.keys(topTracksByDecade),
         topTracksByDecade: topTracksByDecade,
     })
 });
