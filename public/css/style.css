@@ -8,6 +8,11 @@ html{
   scroll-behavior: smooth;
 }
 
+/* @viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+} */
+
 * {
     margin: 0;
     padding: 0;
@@ -33,45 +38,6 @@ a {
     border: none;
     cursor: pointer;
     font-weight: bolder;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
 }
 
 /* NAVBAR CSS STYLINGS */
@@ -108,10 +74,7 @@ a {
 }
 
 .navbar-name {
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
+    margin: auto;
 }
 
 .nav-link-left{
@@ -152,6 +115,7 @@ a {
 .favourite-header-text {
     font-size: 3em;
     white-space: wrap;
+    padding: 1% 1% 4%;
 }
 
 /* DROPDOWN */
@@ -265,7 +229,7 @@ img {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 2em;
+    /*margin-top: 2em;*/
 }
 
 .most-played-x-name-and-cover {
@@ -293,7 +257,6 @@ img {
     justify-content: center;
     max-width: 100vh;
     max-height: 100vh;
-    margin-top: 1em;
 }
 
 .most-played-song-list-tag {
@@ -349,10 +312,6 @@ img {
     margin: 4%;
 }
 
-.most-played-artist-name-and-cover {
-    display: grid;
-}
-
 /* MOST PLAYED ALBUM SECTION */
 
 #album-section {
@@ -360,10 +319,8 @@ img {
     scroll-margin-top: 3.6em;
 }
 
-.favourite-header-text-album {
+#album-section .favourite-header-text {
     color: white;
-    font-size: 3em;
-    white-space: wrap;
 }
 
 .most-played-album-name-amount-artist-name {
@@ -388,6 +345,7 @@ img {
 }
 
 .most-played-genre-ul-tag {
+    background-color: #292929;
     column-count: 2;
     column-gap: 5em;
     color: #1DB954;
@@ -395,6 +353,7 @@ img {
     font-size: 2em;
     margin-top: 1em;
     margin-left: 1em;
+    margin-right: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     list-style-position: inside;
     border-radius: 25px;
@@ -403,6 +362,10 @@ img {
 
 .most-played-genre-li-tag {
     color: #1DB954;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 0.2em;
 }
 
 
@@ -497,9 +460,7 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #191414;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #191414;
     width: 80vw;
     height: fit-content;
     background-color: white;
@@ -561,13 +522,30 @@ img {
     max-width: 4em;
 }
 
-@media (max-width: 850px) {
+@media screen and (max-width: 650px) {
 
-    #username {
+    .username {
         display: none;
     }
 
     .navbar-name {
         display: none;
+    }
+
+    .favourite-header-text {
+        font-size: 1.9em;
+        text-align: center;
+    }
+
+    .spotify-embedded-album-container {
+        width: 90%;
+    }
+
+    #song-section .most-played-x-name-and-cover {
+        padding-bottom: 5%;
+    }
+
+    #artist-section .most-played-x-name-and-cover {
+        padding: 5%;
     }
 }
