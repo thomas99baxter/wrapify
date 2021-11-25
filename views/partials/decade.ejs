@@ -12,9 +12,8 @@
       <div class="decade-single-song-card">
         <img class="decade-song-album-image" src=<%= topTracksByDecade[decade][i].image.url %>>
         <a class='decade-song-link' href= <%= topTracksByDecade[decade][i].link %>>
-          <p class='decade-song-songname'> <%= topTracksByDecade[decade][i].songName %> </p>
+          <p class='decade-song-songname'> <%= topTracksByDecade[decade][i].songName %>       (<%= topTracksByDecade[decade][i].releaseDate.slice(0,4) %>)</p>
         </a>
-        <p class='decade-song-date'><%= topTracksByDecade[decade][i].releaseDate.slice(0,4) %> </p>
       </div>
       <% } %>
         <% }; %>
