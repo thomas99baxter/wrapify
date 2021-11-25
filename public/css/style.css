@@ -516,7 +516,7 @@ img {
     max-width: 4em;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 650px) {
 
     .username {
         display: none;
